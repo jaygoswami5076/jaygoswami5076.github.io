@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jay Goswami | HR Technology Portfolio</title>
+<title>Jay Goswami | Learning & HRIS Consultant</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,10 +35,10 @@ body {
     background: linear-gradient(135deg, #eef2ff 0%, #ffffff 50%, #f8fafc 100%);
 }
 
-.badge {
-    background: #eef2ff;
-    border: 1px solid #c7d2fe;
-    color: #4f46e5;
+/* Fixed the 'Y' cutting off by adding padding and adjusting leading */
+.hero-name {
+    padding-bottom: 8px;
+    line-height: 1.2;
 }
 
 .cta-button {
@@ -58,41 +58,34 @@ body {
 
 <main class="flex-grow">
 
-<!-- WELCOME HERO -->
 <section id="welcome" class="page-section active light-hero items-center justify-center text-center px-6">
 
     <div class="max-w-4xl">
 
-        <!-- Professional Badge -->
-        <div class="inline-flex items-center px-6 py-2 mb-8 rounded-full badge text-sm font-semibold tracking-wide uppercase">
-            HR Technology | HRIS | Digital Transformation
-        </div>
-
-        <!-- Headline -->
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+        <h1 class="hero-name text-5xl md:text-7xl font-extrabold mb-4">
             Jay Goswami
         </h1>
 
-        <h2 class="text-xl md:text-2xl font-semibold text-indigo-600 mb-8">
-            HRIS Consultant & Enterprise HR Technology Strategist
+        <h2 class="text-xl md:text-2xl font-semibold text-indigo-600 mb-8 uppercase tracking-wide">
+            Learning & HRIS Consultant
         </h2>
 
-        <!-- Description -->
-        <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Delivering scalable HR system transformation, optimizing learning ecosystems,
-            and leading global HR technology initiatives that elevate workforce experience
-            and drive measurable business impact.
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+            Experienced LMS and HRIS Consultant with over <strong>6 years of expertise</strong> in learning delivery, 
+            Talent Development, Compliance management, LMS migration, configuration, implementation, and system automation. 
+            Specialized in platforms such as <strong>Cornerstone OnDemand, Workday Learning, and SABA</strong>. 
+            Proficient in SAP SuccessFactors, <strong>Learning Experience Platforms (LXP)</strong>, and 
+            integrated ecosystems to support learning engagement and operational efficiency.
         </p>
 
-<!-- CTA -->
-<button 
-    onclick="location.href='page2.html'" 
-    class="cta-button px-12 py-4 rounded-2xl text-lg font-bold shadow-md">
-    Enter Professional Profile
-</button>
-        <!-- Subtle Footer Tagline -->
-        <div class="mt-16 text-sm text-slate-400 tracking-wide">
-            Enterprise HR Systems • LMS Optimization • Global Implementation Leadership
+        <button 
+            onclick="location.href='page2.html'" 
+            class="cta-button px-12 py-4 rounded-2xl text-lg font-bold shadow-md">
+            Enter Professional Profile
+        </button>
+
+        <div class="mt-16 text-sm text-slate-400 tracking-widest uppercase font-medium">
+            LMS Migration • System Automation • Global Implementation
         </div>
 
     </div>

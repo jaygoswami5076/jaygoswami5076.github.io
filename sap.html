@@ -1,11 +1,9 @@
-SAP SF Goat Code
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAP SuccessFactors - Jay Goswami</title>
+  <title>SAP SuccessFactors Strategic Admin - Jay Goswami</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script>
@@ -13,10 +11,10 @@ SAP SF Goat Code
       theme: {
         extend: {
           colors: {
-            sapShell: "#354a5f", // Classic SF Shell Blue
-            sapGold: "#f0ab00",  // SAP Accent
-            sapBg: "#edeff0",    // Fiori Background
-            sapLink: "#0854a0",  // SAP Action Link
+            sapShell: "#354a5f", 
+            sapGold: "#f0ab00",  
+            sapBg: "#edeff0",    
+            sapLink: "#0854a0",  
             sapSuccess: "#2b7c2b",
             sapTile: "#ffffff"
           }
@@ -25,7 +23,8 @@ SAP SF Goat Code
     }
   </script>
   <style>
-    body { font-family: "72", "72full", Arial, Helvetica, sans-serif; background-color: #edeff0; }
+    @import url('https://fonts.googleapis.com/css2?family=72:wght@300;400;700&display=swap');
+    body { font-family: "72", Arial, sans-serif; background-color: #edeff0; padding-bottom: 80px; }
     .fiori-card { 
       background: white; 
       border-radius: 0.75rem; 
@@ -40,29 +39,50 @@ SAP SF Goat Code
     }
     .shell-bar { height: 2.75rem; background-color: #354a5f; color: white; }
     .quick-action-icon { color: #0854a0; font-size: 1.5rem; }
-    .status-bar { height: 4px; border-radius: 2px; }
+    
+    /* Back Button Styling */
+    .btn-back {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #0854a0;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-back:hover {
+      background: #0a6ed1;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
   <header class="shell-bar flex items-center justify-between px-4 z-50 sticky top-0">
     <div class="flex items-center gap-4">
-      <i class="fas fa-bars cursor-pointer"></i>
-      <div class="flex items-center gap-2">
-        <span class="font-bold text-sm">Home</span>
+      <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/082017/untitled-1_9.png?itok=H5NIZ8K5" class="h-6 filter brightness-0 invert" alt="SAP Logo">
+      <div class="flex items-center gap-2 border-l border-white/20 pl-4">
+        <span class="font-bold text-sm">SuccessFactors Admin Center</span>
         <i class="fas fa-chevron-down text-[10px]"></i>
       </div>
     </div>
     
-    <div class="relative w-1/3 max-w-md">
-      <input type="text" placeholder="Search for actions or people" 
+    <div class="relative w-1/3 max-w-md hidden md:block">
+      <input type="text" placeholder="Search for actions or employees" 
              class="w-full bg-[#4a5f71] border-none rounded py-1 px-8 text-xs text-white placeholder-gray-300 focus:bg-white focus:text-black outline-none transition-all">
       <i class="fas fa-search absolute left-2.5 top-2 text-gray-300 text-[10px]"></i>
     </div>
 
     <div class="flex items-center gap-5 text-sm">
       <i class="far fa-bell"></i>
-      <i class="far fa-question-circle"></i>
       <div class="flex items-center gap-2 border-l border-gray-500 pl-4">
         <div class="w-7 h-7 bg-orange-600 rounded-full flex items-center justify-center text-[10px] font-bold">JG</div>
       </div>
@@ -72,49 +92,49 @@ SAP SF Goat Code
   <div class="bg-white border-b px-8 py-6">
     <div class="max-w-7xl mx-auto flex justify-between items-end">
       <div>
-        <h1 class="text-2xl font-light text-gray-700">SuccessFactors Global Admin</h1>
-        <p class="text-3xl font-bold text-sapShell">Jay Goswami <span class="text-lg font-normal text-gray-400">| SF HCM & Performance Expert</span></p>
+        <h1 class="text-xl font-light text-gray-500 mb-1">Talent Management & Core HCM</h1>
+        <p class="text-3xl font-bold text-sapShell">Jay Goswami <span class="text-lg font-normal text-gray-400">| Global SAP SF Solutions Consultant</span></p>
       </div>
       <div class="flex gap-3">
-        <button class="px-4 py-1.5 border border-sapLink text-sapLink text-sm font-semibold rounded hover:bg-blue-50">View Profile</button>
-        <button class="px-4 py-1.5 bg-sapLink text-white text-sm font-semibold rounded hover:bg-blue-800">Admin Center</button>
+        <button class="px-4 py-1.5 border border-sapLink text-sapLink text-sm font-semibold rounded hover:bg-blue-50">Reporting Stories</button>
+        <button class="px-4 py-1.5 bg-sapLink text-white text-sm font-semibold rounded hover:bg-blue-800">Instance Sync</button>
       </div>
     </div>
   </div>
 
   <main class="flex-1 p-8 max-w-7xl mx-auto w-full">
     
-    <h2 class="text-lg font-bold text-gray-700 mb-4 italic">Quick Actions</h2>
+    <h2 class="text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">Strategic Operations</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
       
       <div onclick="showDetail('security')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
-        <i class="fas fa-user-lock quick-action-icon"></i>
-        <span class="text-xs font-semibold">Manage RBP</span>
-      </div>
-
-      <div onclick="showDetail('mdf')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
-        <i class="fas fa-cubes quick-action-icon"></i>
-        <span class="text-xs font-semibold">MDF Extensions</span>
+        <i class="fas fa-id-badge quick-action-icon"></i>
+        <span class="text-xs font-semibold">RBP & MDF Security</span>
       </div>
 
       <div onclick="showDetail('performance')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
-        <i class="fas fa-chart-line quick-action-icon"></i>
-        <span class="text-xs font-semibold">Goal Mgt</span>
-      </div>
-
-      <div onclick="showDetail('integration')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
-        <i class="fas fa-exchange-alt quick-action-icon"></i>
-        <span class="text-xs font-semibold">SF-CSOD API</span>
-      </div>
-
-      <div onclick="showDetail('reporting')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
-        <i class="fas fa-file-invoice quick-action-icon"></i>
-        <span class="text-xs font-semibold">Ad Hoc Reports</span>
+        <i class="fas fa-bullseye quick-action-icon"></i>
+        <span class="text-xs font-semibold">Goal & PM Setup</span>
       </div>
 
       <div onclick="showDetail('calibration')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
-        <i class="fas fa-balance-scale quick-action-icon"></i>
-        <span class="text-xs font-semibold">Calibration</span>
+        <i class="fas fa-users-cog quick-action-icon"></i>
+        <span class="text-xs font-semibold">Calibration/360</span>
+      </div>
+
+      <div onclick="showDetail('reporting')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
+        <i class="fas fa-chart-pie quick-action-icon"></i>
+        <span class="text-xs font-semibold">Story Reports</span>
+      </div>
+
+      <div onclick="showDetail('integration')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
+        <i class="fas fa-sync quick-action-icon"></i>
+        <span class="text-xs font-semibold">LMS-HCM Sync</span>
+      </div>
+
+      <div onclick="showDetail('pulse')" class="fiori-card p-4 flex flex-col items-center justify-center text-center gap-2">
+        <i class="fas fa-heartbeat quick-action-icon"></i>
+        <span class="text-xs font-semibold">Pulse Reviews</span>
       </div>
 
     </div>
@@ -123,46 +143,36 @@ SAP SF Goat Code
       
       <div class="fiori-card p-6 border-t-4 border-sapGold">
         <div class="flex justify-between items-start mb-6">
-          <h3 class="text-lg font-bold text-gray-800">Performance & Talent Lifecycle</h3>
-          <span class="text-[10px] bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded font-bold">CYCLE ACTIVE</span>
+          <h3 class="text-lg font-bold text-gray-800">Goal & Performance Management</h3>
+          <span class="text-[10px] bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded font-bold">EXECUTIVE VIEW</span>
         </div>
         <div class="space-y-4">
-          <div class="flex justify-between items-center text-sm">
-            <span>Goal Plan Templates Created</span>
-            <span class="font-bold">12 Global Templates</span>
-          </div>
-          <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-            <div class="bg-sapGold w-full h-full"></div>
-          </div>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            Designed and deployed complex Performance forms with custom development notes. Synchronized KPIs across global business units while managing technical form-logic and route maps.
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Deployment of high-impact <strong>PM/GM Canva reports</strong> and table reports. Managed the architectural setup of <strong>Route Maps</strong> and Goal Plan templates aligned to enterprise KPIs.
           </p>
-          <ul class="text-xs text-sapLink font-semibold flex gap-4 mt-2">
-            <li class="cursor-pointer hover:underline">Manage Forms</li>
-            <li class="cursor-pointer hover:underline">Launch Calibration</li>
-          </ul>
+          <div class="grid grid-cols-2 gap-2 mt-4">
+            <div class="bg-gray-50 p-2 rounded text-[10px]">
+              <span class="block font-bold text-sapShell">Form Logic</span>
+              <span class="text-gray-500">Continuous Feedback Enabled</span>
+            </div>
+            <div class="bg-gray-50 p-2 rounded text-[10px]">
+              <span class="block font-bold text-sapShell">Templates</span>
+              <span class="text-gray-500">Global Development Notes</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="fiori-card p-6 border-t-4 border-sapLink">
         <div class="flex justify-between items-start mb-6">
-          <h3 class="text-lg font-bold text-gray-800">Security & Technical Architecture</h3>
-          <i class="fas fa-shield-virus text-sapLink"></i>
+          <h3 class="text-lg font-bold text-gray-800">Calibration & 360 Talent Reviews</h3>
+          <i class="fas fa-project-diagram text-sapLink"></i>
         </div>
         <div class="space-y-3">
-          <div class="flex gap-3 items-center p-3 bg-gray-50 rounded">
-            <i class="fas fa-key text-gray-400"></i>
-            <div>
-              <p class="text-xs font-bold">RBP & MDF Security</p>
-              <p class="text-[10px] text-gray-500">Configured Role-Based Permissions and custom MDF sets for LMS-HCM sync.</p>
-            </div>
-          </div>
-          <div class="flex gap-3 items-center p-3 bg-gray-50 rounded">
-            <i class="fas fa-plug text-gray-400"></i>
-            <div>
-              <p class="text-xs font-bold">API & Integrations</p>
-              <p class="text-[10px] text-gray-500">Engineered Custom SF APIs to facilitate seamless data flow between SAP SF and Cornerstone.</p>
-            </div>
+          <p class="text-xs text-gray-600">Collaborating with HRBPs to execute seamless calibration cycles and 360-degree feedback sessions for global leadership pipelines.</p>
+          <div class="flex gap-3 items-center p-3 bg-blue-50 rounded border border-blue-100">
+            <i class="fas fa-check-double text-sapLink text-xs"></i>
+            <p class="text-[10px] font-bold text-sapLink">Pulse Reviews & Custom Performance Forms Deployed</p>
           </div>
         </div>
       </div>
@@ -170,71 +180,74 @@ SAP SF Goat Code
     </div>
   </main>
 
+  <a href="page5.html" class="btn-back">
+    <i class="fas fa-th-large"></i> BACK TO TECH STACK
+  </a>
+
   <script>
     const contentArea = document.getElementById('content-area');
     const originalContent = contentArea.innerHTML;
 
     function showDetail(type) {
       let html = '';
-      const backBtn = `<div class="col-span-2 mb-4"><button onclick="resetHome()" class="text-sapLink text-sm font-bold"><i class="fas fa-arrow-left"></i> Back to Success Map</button></div>`;
+      const backBtn = `<div class="col-span-2 mb-4"><button onclick="resetHome()" class="text-sapLink text-sm font-bold hover:underline"><i class="fas fa-arrow-left"></i> Back to Main Admin View</button></div>`;
       
       if(type === 'security') {
         html = backBtn + `
-          <div class="col-span-2 fiori-card p-8 bg-white">
-            <h2 class="text-xl font-bold text-sapShell mb-4">Security & MDF Administration</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h4 class="font-bold text-sm text-gray-700 border-b pb-2 mb-3">Role-Based Permissions (RBP)</h4>
-                <ul class="text-xs space-y-3 text-gray-600">
-                  <li class="flex gap-2"><i class="fas fa-check text-sapSuccess"></i> <span>Architected hierarchical permission sets for global regional admins.</span></li>
-                  <li class="flex gap-2"><i class="fas fa-check text-sapSuccess"></i> <span>Optimized MDF (Metadata Framework) permission sets for secure object access.</span></li>
+          <div class="col-span-2 fiori-card p-8 bg-white border-l-4 border-sapLink">
+            <h2 class="text-xl font-bold text-sapShell mb-4 text-center">Governance: RBP & MDF Framework</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div class="space-y-4">
+                <h4 class="font-bold text-sm text-sapLink uppercase">Security Infrastructure</h4>
+                <p class="text-xs text-gray-600">Expertise in <strong>Role-Based Permissions (RBP)</strong> and MDF permission sets, ensuring granular access control for sensitive HCM data across global nodes.</p>
+                <div class="p-3 bg-gray-50 rounded text-[10px] italic">"Mapping custom MDF fields to ensure accurate LMS-HCM synchronization."</div>
+              </div>
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h4 class="font-bold text-xs mb-3">Key Focus Areas:</h4>
+                <ul class="text-[11px] space-y-2">
+                  <li class="flex items-center gap-2"><i class="fas fa-check text-sapSuccess"></i> Object Security (MDF)</li>
+                  <li class="flex items-center gap-2"><i class="fas fa-check text-sapSuccess"></i> People-to-People Relationships</li>
+                  <li class="flex items-center gap-2"><i class="fas fa-check text-sapSuccess"></i> Regional Admin Constraints</li>
                 </ul>
               </div>
-              <div>
-                <h4 class="font-bold text-sm text-gray-700 border-b pb-2 mb-3">HCM Data Sync</h4>
-                <p class="text-xs text-gray-600 leading-relaxed">Ensured 100% accuracy in LMS-HCM data synchronization by creating custom fields and mapping them to specific MDF objects across 7+ regions.</p>
-              </div>
             </div>
+          </div>
+        `;
+      } else if(type === 'reporting') {
+        html = backBtn + `
+          <div class="col-span-2 fiori-card p-8 bg-white text-center">
+             <i class="fas fa-chart-line text-4xl text-sapGold mb-4"></i>
+             <h2 class="text-xl font-bold text-sapShell mb-4">Advanced Analytics & Story Reporting</h2>
+             <p class="text-sm text-gray-600 max-w-2xl mx-auto mb-6">Preparation of high-fidelity <strong>PM/GM Canva reports</strong>, table reports, and <strong>SuccessFactors Stories</strong> to drive data-led talent decisions.</p>
+             <div class="grid grid-cols-3 gap-4">
+                <div class="p-4 border rounded bg-gray-50"><p class="text-xs font-bold uppercase">Table Reports</p></div>
+                <div class="p-4 border rounded bg-gray-50"><p class="text-xs font-bold uppercase">Canva Visuals</p></div>
+                <div class="p-4 border rounded bg-gray-50"><p class="text-xs font-bold uppercase">Story Analytics</p></div>
+             </div>
           </div>
         `;
       } else if(type === 'performance') {
         html = backBtn + `
           <div class="col-span-2 fiori-card p-8 bg-white">
-            <h2 class="text-xl font-bold text-sapShell mb-4">Goal & Performance Technical Lead</h2>
-            <div class="bg-blue-50 p-4 rounded mb-6">
-              <p class="text-xs text-sapLink font-bold">Deliverables: Goal Plan Templates, Calibration Cycles, KPI Alignment</p>
-            </div>
-            <p class="text-sm text-gray-700 mb-4">Managed the end-to-end technical configuration of performance cycles:</p>
-            <ul class="list-disc ml-5 text-xs space-y-2 text-gray-600">
-              <li>Created and tested XML Goal Plan templates for global deployment.</li>
-              <li>Enabled Development Notes and Continuous Performance Management (CPM) features.</li>
-              <li>Partnered with HRBPs to facilitate automated calibration sessions ensuring data-driven talent reviews.</li>
-            </ul>
-          </div>
-        `;
-      } else if(type === 'integration') {
-        html = backBtn + `
-          <div class="col-span-2 fiori-card p-8 bg-white text-center">
-            <i class="fas fa-network-wired text-4xl text-sapLink mb-4"></i>
-            <h2 class="text-xl font-bold text-sapShell mb-2">System Interoperability</h2>
-            <p class="text-sm text-gray-600 max-w-lg mx-auto mb-6">Specialized in the technical bridge between SAP SuccessFactors and Cornerstone (CSOD) using Custom SF APIs and Integration Center.</p>
-            <div class="flex justify-center gap-10">
-               <div class="text-center">
-                  <p class="text-2xl font-bold text-sapLink">OData</p>
-                  <p class="text-[10px] uppercase font-bold text-gray-400">API Protocol</p>
-               </div>
-               <div class="text-center">
-                  <p class="text-2xl font-bold text-sapLink">SFTP</p>
-                  <p class="text-[10px] uppercase font-bold text-gray-400">Data Transfer</p>
-               </div>
+            <h2 class="text-xl font-bold text-sapShell mb-4">End-to-End PM/GM Lifecycle</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="p-4 bg-blue-50 border-l-4 border-sapLink">
+                <h4 class="font-bold text-xs mb-2">Technical Delivery</h4>
+                <p class="text-[11px] text-gray-700">Created complex <strong>Goal Plan Templates</strong>, Development Notes, and orchestrated the <strong>Route Map</strong> logic for global performance cycles.</p>
+              </div>
+              <div class="p-4 bg-yellow-50 border-l-4 border-sapGold">
+                <h4 class="font-bold text-xs mb-2">Cycle Management</h4>
+                <p class="text-[11px] text-gray-700">Managed Performance Forms from launch to completion, ensuring 100% visibility for HRBPs and stakeholders.</p>
+              </div>
             </div>
           </div>
         `;
       } else {
-        html = backBtn + `<div class="col-span-2 p-10 text-center fiori-card">This SF Module is being initialized...</div>`;
+        html = backBtn + `<div class="col-span-2 p-10 text-center fiori-card">SuccessFactors Module Initializing... Data flowing via OData API.</div>`;
       }
 
       contentArea.innerHTML = html;
+      window.scrollTo({ top: 400, behavior: 'smooth' });
     }
 
     function resetHome() {

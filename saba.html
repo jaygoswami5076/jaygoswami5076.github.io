@@ -1,10 +1,9 @@
-SABA GOAT CODE
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Operations Architect - Jay Goswami</title>
+  <title>LMS Operations - Jay Goswami</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script>
@@ -12,202 +11,232 @@ SABA GOAT CODE
       theme: {
         extend: {
           colors: {
-            brandBlue: "#2563eb",
-            brandDark: "#0f172a",
-            brandSuccess: "#22c55e",
-            snowGreen: "#81b532"
+            sabaBlue: "#00679C",
+            sabaOrange: "#EE7125",
+            sabaDark: "#333333",
+            sabaBg: "#F4F7F9"
           }
         }
       }
     }
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+    body { font-family: 'Open Sans', sans-serif; background-color: #F4F7F9; }
     
-    .glass-card { background: white; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-    .sidebar-navy { background: #0f172a; }
+    .saba-header { background: white; border-bottom: 3px solid #EE7125; }
+    .sidebar-nav { background: #333333; }
+    
+    .nav-item { transition: all 0.2s; cursor: pointer; border-left: 4px solid transparent; color: #ccc; }
+    .nav-item:hover { background: #444; color: white; }
+    .nav-item.active { background: #222; color: white; border-left-color: #EE7125; }
 
     .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeInUp 0.4s ease; }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(10px); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .nav-link { transition: all 0.2s; cursor: pointer; color: #94a3b8; }
-    .nav-link:hover { color: white; background: rgba(255,255,255,0.05); }
-    .nav-link.active { color: white; background: #2563eb; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+    .stat-card { border-top: 4px solid #00679C; transition: transform 0.2s; }
+    .stat-card:hover { transform: translateY(-2px); }
+
+    .btn-saba {
+      background: #00679C;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: all 0.2s;
+      border-bottom: 3px solid #004d75;
+    }
+    .btn-saba:hover { background: #0078B5; }
   </style>
 </head>
-<body class="p-4 md:p-10">
+<body class="flex flex-col h-screen">
 
-  <div class="max-w-7xl mx-auto glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row min-h-[750px]">
-    
-    <aside class="w-full md:w-72 sidebar-navy text-white p-6 flex flex-col">
-      <div class="mb-10 flex items-center gap-3">
-        <div class="w-10 h-10 bg-brandBlue rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-          <i class="fas fa-hubspot text-lg"></i>
-        </div>
-        <div>
-          <span class="block font-bold text-lg leading-none">Ecosystem</span>
-          <span class="text-[10px] text-blue-400 font-bold tracking-widest uppercase">Architect</span>
-        </div>
+  <header class="saba-header h-16 flex items-center justify-between px-6 shadow-md z-50">
+    <div class="flex items-center gap-6">
+      <img src="https://cdn-public.softwarereviews.com/production/logos/offering_score_snapshots/57376/original/Saba-Logo-RGB-M_%281%29.png?1602234020" 
+           alt="Saba Logo" class="h-8">
+      <div class="h-8 w-[1px] bg-gray-300"></div>
+      <h1 class="font-bold text-gray-700 tracking-tight uppercase text-sm">Learning Administration Console</h1>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="text-right mr-4 border-r pr-4 border-gray-200">
+        <p class="text-[10px] font-bold text-gray-400 uppercase">Profile</p>
+        <p class="text-xs font-bold text-sabaBlue">Jay Goswami</p>
       </div>
+      <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-sabaDark font-bold">JG</div>
+    </div>
+  </header>
 
-      <nav class="flex-1 space-y-2" id="main-nav">
-        <p class="text-[10px] uppercase font-bold text-slate-500 mb-2 px-3">LMS & Delivery (Saba)</p>
-        <div onclick="switchTab('saba-ops', this)" class="nav-link active p-3 rounded-xl flex items-center gap-3">
-          <i class="fas fa-sync-alt text-sm"></i><span class="text-sm font-semibold">Class Operations</span>
+  <div class="flex flex-1 overflow-hidden">
+    
+    <aside class="w-64 sidebar-nav text-white flex flex-col">
+      <nav class="flex-1 pt-6">
+        <p class="px-6 text-[10px] font-bold text-gray-500 uppercase mb-4">LMS Delivery</p>
+        <div onclick="switchTab('saba-ops', this)" class="nav-item active p-4 flex items-center gap-3">
+          <i class="fas fa-calendar-alt w-5"></i> <span class="text-sm font-semibold">ILT/VILT Delivery</span>
         </div>
-        <div onclick="switchTab('saba-logistics', this)" class="nav-link p-3 rounded-xl flex items-center gap-3">
-          <i class="fas fa-map-location-dot text-sm"></i><span class="text-sm font-semibold">Global Logistics</span>
+        <div onclick="switchTab('saba-logistics', this)" class="nav-item p-4 flex items-center gap-3">
+          <i class="fas fa-map-marker-alt w-5"></i> <span class="text-sm font-semibold">Class Logistics</span>
         </div>
 
-        <p class="text-[10px] uppercase font-bold text-slate-500 mt-6 mb-2 px-3">Service Management (SNOW)</p>
-        <div onclick="switchTab('snow-cases', this)" class="nav-link p-3 rounded-xl flex items-center gap-3">
-          <i class="fas fa-ticket-alt text-sm"></i><span class="text-sm font-semibold">HRSD & Projects</span>
+        <p class="px-6 text-[10px] font-bold text-gray-500 uppercase mt-8 mb-4">System Support</p>
+        <div onclick="switchTab('snow-cases', this)" class="nav-item p-4 flex items-center gap-3">
+          <i class="fas fa-ticket-alt w-5"></i> <span class="text-sm font-semibold">HRSD Support</span>
         </div>
-        <div onclick="switchTab('snow-releases', this)" class="nav-link p-3 rounded-xl flex items-center gap-3">
-          <i class="fas fa-code-branch text-sm"></i><span class="text-sm font-semibold">Release & Change</span>
+        <div onclick="switchTab('snow-releases', this)" class="nav-item p-4 flex items-center gap-3">
+          <i class="fas fa-code-branch w-5"></i> <span class="text-sm font-semibold">Release Governance</span>
         </div>
       </nav>
-
-      <div class="mt-auto pt-6 border-t border-white/10 flex items-center gap-3">
-        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-[10px] font-bold">JG</div>
-        <div class="text-[11px]"><p class="font-bold leading-none">Jay Goswami</p><p class="opacity-40">System Specialist</p></div>
+      
+      <div class="p-6 bg-[#2a2a2a] text-[11px] text-gray-400">
+        <p>System: Saba Cloud</p>
+        <p>Environment: Production</p>
       </div>
     </aside>
 
-    <section class="flex-1 bg-white flex flex-col">
+    <main class="flex-1 overflow-y-auto p-8 bg-sabaBg pb-24">
       
-      <header class="p-8 border-b flex justify-between items-center bg-slate-50/30">
-        <div>
-          <h2 id="display-title" class="text-2xl font-extrabold text-slate-800">Class Operations Management</h2>
-          <p class="text-sm text-slate-500" id="display-subtitle">High-Volume Audit Lane Support</p>
-        </div>
-        <div class="flex items-center gap-3 bg-white border px-4 py-2 rounded-2xl shadow-sm">
-          <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
-          <span class="text-[10px] font-bold text-slate-600">ENTERPRISE UPTIME: 99.9%</span>
-        </div>
-      </header>
-
-      <div class="p-8 overflow-y-auto">
-        
-        <div id="saba-ops" class="tab-content active space-y-8">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-              <p class="text-3xl font-black text-blue-600">200+</p>
-              <p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mt-1">Monthly Classes</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-              <p class="text-xl font-bold text-slate-800">Audit Lane</p>
-              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Assigned Service Lane</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-              <p class="text-xl font-bold text-slate-800">CPE Credits</p>
-              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Compliance Issuance</p>
-            </div>
-          </div>
-          <div class="space-y-4">
-            <h3 class="font-bold text-slate-800 flex items-center gap-2"><i class="fas fa-layer-group text-blue-500"></i> Operational Core</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="p-4 bg-white border rounded-xl flex gap-4">
-                <i class="fas fa-users-viewfinder text-blue-500 mt-1"></i>
-                <p class="text-xs text-slate-600 leading-relaxed"><strong>Facilitator Management:</strong> Sourcing and coordinating global instructors for intensive audit programs.</p>
-              </div>
-              <div class="p-4 bg-white border rounded-xl flex gap-4">
-                <i class="fas fa-square-poll-vertical text-blue-500 mt-1"></i>
-                <p class="text-xs text-slate-600 leading-relaxed"><strong>MTM Metrics:</strong> Deploying <em>Metrics That Matter</em> evaluations and consolidating performance data.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="saba-logistics" class="tab-content space-y-6">
-          <div class="bg-slate-900 text-white rounded-3xl p-8 relative overflow-hidden">
-            <div class="relative z-10">
-              <h3 class="text-xl font-bold mb-2">End-to-End Logistics Lifecycle</h3>
-              <p class="text-sm opacity-70 mb-6">Managing the physical and digital footprint of global learning programs.</p>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-                  <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">Venue Sourcing</h4>
-                  <p class="text-xs">Selection and booking of global training facilities and on-site logistics coordination.</p>
-                </div>
-                <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-                  <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">Travel Itineraries</h4>
-                  <p class="text-xs">Managing participant travel itineraries and booking logistics for regional training sessions.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="snow-cases" class="tab-content space-y-6">
-          <div class="bg-white border rounded-2xl overflow-hidden shadow-sm">
-            <div class="p-6 border-b flex justify-between items-center bg-slate-50">
-              <span class="text-sm font-bold text-slate-700">ServiceNow Case Management</span>
-              <span class="text-[10px] font-black text-snowGreen uppercase">HRSD Portal</span>
-            </div>
-            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div class="space-y-4">
-                <div class="flex gap-4">
-                  <i class="fas fa-ticket text-slate-400"></i>
-                  <div>
-                    <h5 class="text-sm font-bold">HR Ticket Lifecycle</h5>
-                    <p class="text-xs text-slate-500 mt-1">Orchestrating complex HR tickets from intake to resolution within SNOW.</p>
-                  </div>
-                </div>
-                <div class="flex gap-4">
-                  <i class="fas fa-tasks text-slate-400"></i>
-                  <div>
-                    <h5 class="text-sm font-bold">Project Tickets</h5>
-                    <p class="text-xs text-slate-500 mt-1">Monitoring project-level tasks, dependencies, and resource mapping.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="bg-slate-50 p-6 rounded-2xl border text-center">
-                <i class="fas fa-gauge-high text-3xl text-slate-300 mb-2"></i>
-                <p class="text-sm font-bold text-slate-800">HR Dashboards</p>
-                <p class="text-[10px] text-slate-400 mt-1">Maintaining real-time HR performance visualizations in ServiceNow.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="snow-releases" class="tab-content space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white border p-6 rounded-2xl shadow-sm border-t-4 border-t-snowGreen">
-              <h4 class="text-sm font-bold mb-4">Product Release Management</h4>
-              <p class="text-xs text-slate-600 leading-relaxed mb-4">Meticulous documentation of product releases within SNOW, ensuring all versioning and approvals are centralized.</p>
-              <span class="text-[10px] font-bold text-snowGreen uppercase bg-green-50 px-2 py-1 rounded">Release Admin</span>
-            </div>
-            <div class="bg-white border p-6 rounded-2xl shadow-sm border-t-4 border-t-blue-500">
-              <h4 class="text-sm font-bold mb-4">Change Management</h4>
-              <p class="text-xs text-slate-600 leading-relaxed mb-4">Executing critical change management functionalities to ensure system stability during HR and L&D platform updates.</p>
-              <span class="text-[10px] font-bold text-blue-500 uppercase bg-blue-50 px-2 py-1 rounded">Change Analyst</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="mb-8">
+        <h2 id="display-title" class="text-2xl font-bold text-sabaDark">ILT & VILT Delivery Management</h2>
+        <p id="display-subtitle" class="text-gray-500 font-medium">High-Volume Audit Lane Support & Operations</p>
       </div>
-    </section>
+
+      <div id="saba-ops" class="tab-content active space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="stat-card bg-white p-6 shadow-sm rounded">
+            <p class="text-[10px] font-bold text-gray-400 uppercase">Volume</p>
+            <p class="text-3xl font-bold text-sabaBlue">200+ <span class="text-sm font-normal text-gray-500">Classes/Mo</span></p>
+          </div>
+          <div class="stat-card bg-white p-6 shadow-sm rounded" style="border-top-color: #EE7125;">
+            <p class="text-[10px] font-bold text-gray-400 uppercase">Specialization</p>
+            <p class="text-2xl font-bold text-sabaDark">Audit Lane</p>
+          </div>
+          <div class="stat-card bg-white p-6 shadow-sm rounded">
+            <p class="text-[10px] font-bold text-gray-400 uppercase">Efficiency</p>
+            <p class="text-2xl font-bold text-sabaDark">VBA Automated</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded shadow-sm">
+          <div class="p-4 border-b bg-gray-50 font-bold text-xs text-gray-600 uppercase">Operational Core & Metrics</div>
+          <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ul class="space-y-4">
+              <li class="flex gap-3 text-sm">
+                <i class="fas fa-check-circle text-sabaBlue mt-1"></i>
+                <span><strong>Delivery Coordination:</strong> End-to-end Saba Cloud scheduling for ILT/VILT, managing rosters and instructor alignment.</span>
+              </li>
+              <li class="flex gap-3 text-sm">
+                <i class="fas fa-check-circle text-sabaBlue mt-1"></i>
+                <span><strong>Automation Mastery:</strong> Engineered Excel Macros/VBA to streamline data cleanup for massive audit training datasets.</span>
+              </li>
+            </ul>
+            <ul class="space-y-4">
+              <li class="flex gap-3 text-sm">
+                <i class="fas fa-check-circle text-sabaOrange mt-1"></i>
+                <span><strong>Metrics That Matter (MTM):</strong> Automated feedback collection via pre/post-event evaluation triggers and reporting.</span>
+              </li>
+              <li class="flex gap-3 text-sm">
+                <i class="fas fa-check-circle text-sabaOrange mt-1"></i>
+                <span><strong>Record Integrity:</strong> Ensured 100% alignment between LMS participation records and Global HR databases.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="saba-logistics" class="tab-content space-y-6">
+        <div class="bg-white border rounded shadow-sm p-8">
+          <h3 class="text-lg font-bold text-sabaBlue mb-4">Global Class Logistics & Venue Management</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-4 bg-sabaBg rounded border-l-4 border-sabaOrange">
+              <h4 class="font-bold text-sm mb-2">Facility & Sourcing</h4>
+              <p class="text-xs text-gray-600">Booking global training facilities, managing technical requirements, and coordinating on-site logistics for regional audit sessions.</p>
+            </div>
+            <div class="p-4 bg-sabaBg rounded border-l-4 border-sabaBlue">
+              <h4 class="font-bold text-sm mb-2">Participant Logistics</h4>
+              <p class="text-xs text-gray-600">Managing travel itineraries, material distribution, and booking for high-impact global learning programs.</p>
+            </div>
+          </div>
+          <div class="mt-8 p-4 border border-dashed text-center rounded text-gray-500 text-sm">
+            <i class="fas fa-tools mr-2"></i> Using <strong>Training Management Tool</strong> for seamless resource allocation.
+          </div>
+        </div>
+      </div>
+
+      <div id="snow-cases" class="tab-content space-y-6">
+        <div class="bg-white border rounded shadow-sm">
+          <div class="p-4 border-b flex justify-between items-center">
+            <span class="font-bold text-sm">ServiceNow: HRSD & Project Support</span>
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-bold">LIVE</span>
+          </div>
+          <div class="p-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-3 border rounded hover:bg-gray-50">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-ticket-alt text-gray-400"></i>
+                  <div>
+                    <p class="text-sm font-bold">HRSD Ticket Lifecycle</p>
+                    <p class="text-xs text-gray-500">Resolving learner-level system issues and HRSD portal queries.</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold text-sabaBlue">RESOLVED</span>
+              </div>
+              <div class="flex items-center justify-between p-3 border rounded hover:bg-gray-50">
+                <div class="flex items-center gap-4">
+                  <i class="fas fa-tasks text-gray-400"></i>
+                  <div>
+                    <p class="text-sm font-bold">Project Task Mapping</p>
+                    <p class="text-xs text-gray-500">Tracking dependencies for LMS platform migrations and system updates.</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold text-sabaBlue">TRACKING</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="snow-releases" class="tab-content space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 border rounded shadow-sm">
+            <h4 class="font-bold text-sabaBlue mb-2 uppercase text-xs">Release Management</h4>
+            <p class="text-xs text-gray-600">Meticulous documentation of Saba Cloud product releases within SNOW, ensuring centralized versioning and approvals.</p>
+          </div>
+          <div class="bg-white p-6 border rounded shadow-sm">
+            <h4 class="font-bold text-sabaOrange mb-2 uppercase text-xs">Change Governance</h4>
+            <p class="text-xs text-gray-600">Executing critical change analyst functions to maintain system stability during platform-wide patches.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <div class="fixed bottom-0 right-0 left-0 h-16 bg-white border-t border-gray-200 flex items-center justify-center z-[100] px-8">
+      <button onclick="window.location.href='page5.html'" class="btn-saba flex items-center gap-3">
+        <i class="fas fa-arrow-left"></i> BACK TO TECH STACK
+      </button>
+    </div>
+
   </div>
 
   <script>
     function switchTab(tabId, el) {
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
       
       document.getElementById(tabId).classList.add('active');
       el.classList.add('active');
 
       const data = {
-        'saba-ops': ['Class Operations Management', 'High-Volume Audit Lane Support'],
-        'saba-logistics': ['Global Logistics Hub', 'End-to-End Class Management'],
-        'snow-cases': ['Service Management Console', 'HRSD & Project Ticketing'],
-        'snow-releases': ['Product & Change Governance', 'Release Management Protocols']
+        'saba-ops': ['ILT & VILT Delivery Management', 'High-Volume Audit Lane Support & Operations'],
+        'saba-logistics': ['Global Logistics Hub', 'End-to-End Class Management & Venue Logistics'],
+        'snow-cases': ['ServiceNow HRSD Portal', 'Case Management & Project Support Console'],
+        'snow-releases': ['Release Governance', 'Product Lifecycle & Change Management']
       };
 
       document.getElementById('display-title').innerText = data[tabId][0];

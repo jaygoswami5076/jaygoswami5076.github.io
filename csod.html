@@ -1,12 +1,9 @@
-CSOD Code
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280">
-    <title>CSOD Admin Console | Jay Goswami</title>
+    <meta name="viewport" content="1280">
+    <title>CSOD Global Admin | Jay Goswami</title>
     <style>
         :root {
             --csod-orange: #FA4616;
@@ -43,7 +40,6 @@ CSOD Code
             color: var(--csod-navy);
             font-size: 18px;
             letter-spacing: -1px;
-            cursor: pointer;
             text-transform: uppercase;
         }
 
@@ -52,7 +48,7 @@ CSOD Code
         /* --- LAYOUT --- */
         .wrapper {
             display: flex;
-            height: calc(100vh - 53px);
+            height: calc(100vh - 113px); /* Adjusted for bottom nav height */
         }
 
         /* --- SIDEBAR --- */
@@ -98,11 +94,10 @@ CSOD Code
             overflow-y: auto;
         }
 
-        /* --- LANDING PAGE WIDGET STYLES --- */
         .banner-container {
             width: 100%;
             height: 160px;
-            background: linear-gradient(rgba(45,62,80,0.7), rgba(45,62,80,0.7)), url('https://www.cornerstoneondemand.com/content/dam/cornerstone/en/images/hero-backgrounds/banner-standard.jpg');
+            background: linear-gradient(rgba(45,62,80,0.8), rgba(45,62,80,0.8)), url('https://www.cornerstoneondemand.com/content/dam/cornerstone/en/images/hero-backgrounds/banner-standard.jpg');
             background-size: cover;
             background-position: center;
             border-radius: 4px;
@@ -115,7 +110,7 @@ CSOD Code
 
         .widget-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1.8fr 1.2fr;
             gap: 20px;
         }
 
@@ -156,7 +151,6 @@ CSOD Code
 
         .status-pill.success { background: #E6F4EA; color: #1E7E34; }
 
-        /* --- SECTION CONTENT STYLES (CODE 1) --- */
         .dashboard-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -198,23 +192,74 @@ CSOD Code
         .full-width { grid-column: span 2; }
         .hidden { display: none; }
 
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 15px;
+        }
+
+        .tech-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* --- BOTTOM NAVIGATION BAR --- */
+        .bottom-nav {
+            background-color: var(--csod-navy);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 2px solid var(--csod-orange);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 20;
+        }
+
+        .btn-back {
+            background-color: transparent;
+            color: #FFF;
+            border: 1px solid #FFF;
+            padding: 10px 25px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-back:hover {
+            background-color: var(--csod-orange);
+            border-color: var(--csod-orange);
+        }
+
     </style>
 </head>
 <body>
 
 <div class="top-nav">
-    <div class="logo-text" onclick="window.location.href='index.html'" style="cursor: pointer;">
-        &larr; MOODY'S <span>CORNERSTONE</span>
+    <div class="logo-text">
+        CORNERSTONE <span>ON DEMAND</span>
     </div>
-    <div style="font-size: 12px; color: #666;">Admin: <b>Jay Goswami</b> | Node: <b>Global_Top_Level</b></div>
+    <div style="font-size: 12px; color: #666;">Global System Architect: <b>Jay Goswami</b> | Authority: <b>Top_Node_LMS</b></div>
 </div>
+
     <div class="wrapper">
         <div class="sidebar">
-            <div class="sidebar-header" onclick="showSection('landing')">Admin Navigation</div>
-            <div class="nav-item" onclick="showSection('overview')">Governance Overview</div>
-            <div class="nav-item" onclick="showSection('integrations')">Edge & API Management</div>
-            <div class="nav-item" onclick="showSection('operations')">Learning Operations (ILT/VILT)</div>
-            <div class="nav-item" onclick="showSection('reporting')">Reporting & Data Integrity</div>
+            <div class="sidebar-header" onclick="showSection('landing')">Global Admin Menu</div>
+            <div class="nav-item" onclick="showSection('overview')">Enterprise Governance</div>
+            <div class="nav-item" onclick="showSection('integrations')">Automations & API</div>
+            <div class="nav-item" onclick="showSection('content')">Content & Curricula</div>
+            <div class="nav-item" onclick="showSection('operations')">Stakeholder Ops</div>
+            <div class="nav-item" onclick="showSection('reporting')">Reporting 2.0</div>
         </div>
 
         <div class="main-content">
@@ -222,8 +267,8 @@ CSOD Code
             <div id="landing" class="section">
                 <div class="banner-container">
                     <div>
-                        <h2 style="margin:0; font-size: 24px;">Global Learning Management</h2>
-                        <p style="margin:5px 0 0; font-size: 14px; opacity: 0.9;">Enterprise Governance & Automation Node | Jay Goswami</p>
+                        <h2 style="margin:0; font-size: 24px;">Global Learning Management – Cornerstone OnDemand (CSOD)</h2>
+                        <p style="margin:5px 0 0; font-size: 14px; opacity: 0.9;">Top-Node Hierarchy Management & Strategic Scalability & Strategic Scalability</p>
                     </div>
                 </div>
 
@@ -231,31 +276,43 @@ CSOD Code
                     <div class="left-col">
                         <div class="csod-widget">
                             <div class="widget-header">
-                                <span>Admin Action Items</span>
-                                <span style="font-size: 11px; color: var(--csod-orange);">4 Pending</span>
+                                <span>High-Impact Initiatives</span>
+                                <span style="font-size: 11px; color: var(--csod-orange);">Active Roadmap</span>
                             </div>
                             <div class="data-row">
                                 <div>
-                                    <div style="font-weight:bold; font-size:13px; color:#0056D2;">Edge Import Automation Audit</div>
-                                    <div style="font-size:11px; color:#666;">Review data feed scheduling and encryption key management.</div>
+                                    <div style="font-weight:bold; font-size:13px; color:#0056D2;">LMS Migration Strategy</div>
+                                    <div style="font-size:11px; color:#666;">Cornerstone to Workday Learning transition planning & data mapping.</div>
                                 </div>
-                                <span class="status-pill success">70% Optimized</span>
+                                <span class="status-pill" style="background: #E8F0FE; color: #1967D2;">In Progress</span>
                             </div>
                             <div class="data-row">
                                 <div>
-                                    <div style="font-weight:bold; font-size:13px; color:#0056D2;">Postman API Credential Validation</div>
-                                    <div style="font-size:11px; color:#666;">Generate and test Client IDs/Secrets for global distribution.</div>
+                                    <div style="font-weight:bold; font-size:13px; color:#0056D2;">Global Security Framework</div>
+                                    <div style="font-size:11px; color:#666;">Standardizing platform-wide preferences for scalability and compliance.</div>
                                 </div>
-                                <span class="status-pill" style="color:#D93025; background:#FCE8E6;">High Priority</span>
+                                <span class="status-pill success">Verified</span>
                             </div>
                         </div>
 
                         <div class="csod-widget">
-                            <div class="widget-header">Release Cycle Management</div>
+                            <div class="widget-header">Stakeholder & Admin Ecosystem</div>
                             <div class="data-row">
                                 <div style="font-size: 13px;">
-                                    <strong>Quarterly CSOD Release Cycle</strong><br>
-                                    <span style="font-size: 11px; color: #666;">Configuring enhancements and live enablement for 45+ admins.</span>
+                                    <strong>Global Network Management</strong><br>
+                                    <span style="font-size: 11px; color: #666;">Leading 80+ global stakeholders and enabling 45+ system admins on release cycles.</span>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div style="font-size: 13px;">
+                                    <strong>Cross-Functional Alignment</strong><br>
+                                    <span style="font-size: 11px; color: #666;">Bridging HR, IT, and Business units to align LMS strategy with corporate training needs.</span>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div style="font-size: 13px;">
+                                    <strong>Live Admin Enablement</strong><br>
+                                    <span style="font-size: 11px; color: #666;">Hosting quarterly hands-on sessions for system enhancement and feature adoption.</span>
                                 </div>
                             </div>
                         </div>
@@ -263,26 +320,30 @@ CSOD Code
 
                     <div class="right-col">
                         <div class="csod-widget">
-                            <div class="widget-header">Integrated Platforms</div>
-                            <div style="padding: 15px;">
-                                <ul style="margin:0; padding:0; list-style:none; font-size: 12px;">
-                                    <li style="padding: 5px 0; border-bottom: 1px solid #f0f0f0;">✔ Skillsoft / Percipio</li>
-                                    <li style="padding: 5px 0; border-bottom: 1px solid #f0f0f0;">✔ Udemy for Business</li>
-                                    <li style="padding: 5px 0;">✔ O’Reilly Learning</li>
-                                </ul>
+                            <div class="widget-header">Core Tech Integrations</div>
+                            <div class="tag-container">
+                                <span class="tech-tag">Edge Import Integrations</span>
+                                <span class="tech-tag">Data Feeds</span>
+                                <span class="tech-tag">API Management</span>
+                                <span class="tech-tag">Edge Marketplace</span>
+                                <span class="tech-tag">O'Reilly</span>
+                                <span class="tech-tag">Udemy For Business</span>
+                                <span class="tech-tag">Percipio</span>
+                                <span class="tech-tag">Cardinus Learning</span>
+                                <span class="tech-tag">MS Teams VILT</span>
                             </div>
                         </div>
 
                         <div class="csod-widget" style="background: var(--csod-navy); color: #fff;">
-                            <div class="widget-header" style="background: rgba(0,0,0,0.2); color: #fff; border: none;">Operational Snapshot</div>
+                            <div class="widget-header" style="background: rgba(0,0,0,0.2); color: #fff; border: none;">Operational Metrics</div>
                             <div style="padding: 15px;">
                                 <div style="margin-bottom: 15px;">
                                     <div style="font-size: 10px; opacity: 0.7;">ILT/VILT ENGAGEMENT</div>
                                     <div style="font-size: 20px; font-weight: bold;">95%</div>
                                 </div>
                                 <div>
-                                    <div style="font-size: 10px; opacity: 0.7;">MONTHLY SESSIONS</div>
-                                    <div style="font-size: 20px; font-weight: bold;">110+</div>
+                                    <div style="font-size: 10px; opacity: 0.7;">ON-TIME COMPLETIONS</div>
+                                    <div style="font-size: 20px; font-weight: bold;">100%</div>
                                 </div>
                             </div>
                         </div>
@@ -293,11 +354,12 @@ CSOD Code
             <div id="overview" class="section hidden">
                 <div class="dashboard-grid">
                     <div class="widget full-width">
-                        <div class="widget-title">Enterprise-Wide Governance & Strategy</div>
+                        <div class="widget-title">Global Consultancy & Top-Node Governance</div>
                         <ul class="exp-list">
-                            <li class="exp-item"><b>Top Node Management:</b> Oversaw governance for Moody’s global hierarchy, ensuring compliance.</li>
-                            <li class="exp-item"><b>Global Security:</b> Designed and maintained security frameworks and platform-wide preference settings.</li>
-                            <li class="exp-item"><b>Release Cycles:</b> Managed quarterly CSOD releases, enabling 45+ admins.</li>
+                            <li class="exp-item"><b>Global System Consultant:</b> Serving at the top node of the hierarchy, overseeing enterprise-wide governance and advanced system configurations.</li>
+                            <li class="exp-item"><b>Security Architecture:</b> Designed global security frameworks and platform-wide preference settings for scalability across Moody’s Corporation.</li>
+                            <li class="exp-item"><b>Release Management:</b> Driving quarterly CSOD release cycles, enabling 45+ system admins through live sessions and feature evaluation.</li>
+                            <li class="exp-item"><b>LMS Migration:</b> Architecting the migration strategy and navigation logic from Cornerstone to Workday Learning.</li>
                         </ul>
                     </div>
                 </div>
@@ -306,16 +368,30 @@ CSOD Code
             <div id="integrations" class="section hidden">
                 <div class="dashboard-grid">
                     <div class="widget">
-                        <div class="widget-title">Edge Import & Automation</div>
+                        <div class="widget-title">Edge Marketplace & Automation</div>
                         <ul class="exp-list">
-                            <li class="exp-item">Reduced manual intervention by <b>70%</b> through Edge Import automation.</li>
+                            <li class="exp-item">Oversee <b>Edge Import automation</b>, data feed scheduling, and encryption key management.</li>
+                            <li class="exp-item">Reduced manual intervention by <b>70%</b> through strategic automation workflows.</li>
                         </ul>
                     </div>
                     <div class="widget">
-                        <div class="widget-title">API & Postman Workflows</div>
+                        <div class="widget-title">Secure API Development</div>
                         <ul class="exp-list">
-                            <li class="exp-item">Managed API credential workflows (Client ID/Secret).</li>
-                            <li class="exp-item">Validated all endpoints in <b>Postman</b>.</li>
+                            <li class="exp-item">Managing API credential workflows including <b>Client IDs and Client Secrets</b>.</li>
+                            <li class="exp-item">Validated secure endpoints via <b>Postman</b> prior to global distribution.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content" class="section hidden">
+                <div class="dashboard-grid">
+                    <div class="widget full-width">
+                        <div class="widget-title">Learning Object Lifecycle Management</div>
+                        <ul class="exp-list">
+                            <li class="exp-item"><b>Multi-Format Development:</b> Managing online classes, materials, videos, tests, and complex curricula.</li>
+                            <li class="exp-item"><b>SCORM Management:</b> Uploading and publishing SCORM packages ensuring seamless tracking and compliance.</li>
+                            <li class="exp-item"><b>Dynamic Assignments:</b> Automated deployment of training based on job roles and organizational rules.</li>
                         </ul>
                     </div>
                 </div>
@@ -323,11 +399,18 @@ CSOD Code
 
             <div id="operations" class="section hidden">
                 <div class="dashboard-grid">
-                    <div class="widget full-width">
-                        <div class="widget-title">Learning Operations (ILT/VILT)</div>
+                    <div class="widget">
+                        <div class="widget-title">ILT/VILT Excellence</div>
                         <ul class="exp-list">
-                            <li class="exp-item">Managed <b>110+ sessions per month</b> across HR and IT units.</li>
-                            <li class="exp-item">Achieved <b>95% learner engagement</b> via optimized roster coordination.</li>
+                            <li class="exp-item">Coordinating <b>110+ monthly sessions</b> with custom communication templates and facilitator management.</li>
+                            <li class="exp-item">Built custom learning communities to drive engagement and peer-to-peer learning.</li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-title">Roster & Stakeholder Success</div>
+                        <ul class="exp-list">
+                            <li class="exp-item">Collaborate with <b>80+ global stakeholders</b> across HR and IT units.</li>
+                            <li class="exp-item">Full roster management: registrations, tracking, and make-up scheduling for 100% on-time completion.</li>
                         </ul>
                     </div>
                 </div>
@@ -335,10 +418,10 @@ CSOD Code
 
             <div id="reporting" class="section hidden">
                 <div class="widget full-width">
-                    <div class="widget-title">Reporting 2.0 & Analytics</div>
+                    <div class="widget-title">Reporting 2.0 & Custom Analytics</div>
                     <ul class="exp-list">
-                        <li class="exp-item">Utilized <b>Reporting 2.0</b> to track program effectiveness for executive reviews.</li>
-                        <li class="exp-item">Administering data integrity across third-party platforms.</li>
+                        <li class="exp-item">Utilizing <b>Reporting 2.0</b> and Custom Reports to track global progress and assignment effectiveness.</li>
+                        <li class="exp-item">Ensuring data integrity across <b>Skillsoft, Percipio, Udemy, and O’Reilly</b> platforms.</li>
                     </ul>
                 </div>
             </div>
@@ -346,19 +429,23 @@ CSOD Code
         </div>
     </div>
 
+    <div class="bottom-nav">
+        <button class="btn-back" onclick="window.location.href='page5.html'">
+            Navigate back to Tech Stack
+        </button>
+    </div>
+
     <script>
         function showSection(id) {
-            // Hide all sections
             document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
-            // Remove active class from nav
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            
-            // Show target
             document.getElementById(id).classList.remove('hidden');
-            
-            // Highlight nav if applicable
-            const activeNav = Array.from(document.querySelectorAll('.nav-item')).find(n => n.getAttribute('onclick').includes(id));
-            if (activeNav) activeNav.classList.add('active');
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(nav => {
+                if(nav.getAttribute('onclick').includes(id)) {
+                    nav.classList.add('active');
+                }
+            });
         }
     </script>
 </body>

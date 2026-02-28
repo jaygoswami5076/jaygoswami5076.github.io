@@ -104,11 +104,11 @@
                                 <img src="https://logo.clearbit.com/hitachivantara.com" alt="Hitachi" onerror="this.src='https://ui-avatars.com/api/?name=Hitachi&background=dd0000&color=fff'">
                             </div>
                             <div>
-                                <h3 class="font-bold text-slate-900 text-lg leading-tight">IT Consulting - Advanced</h3>
+                                <h3 class="font-bold text-slate-900 text-lg leading-tight">Consultant, IT Consulting & Implementation</h3>
                                 <p class="text-indigo-600 font-medium text-sm">Hitachi Digital Services</p>
                             </div>
                         </div>
-                        <p class="text-slate-600 text-sm leading-relaxed">Specializing in Cornerstone & Workday Learning implementation for global digital infrastructure.</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Specializing in Advanced Cornerstone & Workday Learning implementation for global digital infrastructure.</p>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                                 <img src="https://logo.clearbit.com/deloitte.com" alt="Deloitte" onerror="this.src='https://ui-avatars.com/api/?name=Deloitte&background=86bc25&color=fff'">
                             </div>
                             <div>
-                                <h3 class="font-bold text-slate-900 text-lg leading-tight">Analyst, Learning Admin</h3>
+                                <h3 class="font-bold text-slate-900 text-lg leading-tight">Analyst, Learning Admin Services</h3>
                                 <p class="text-indigo-600 font-medium text-sm">Deloitte</p>
                             </div>
                         </div>
@@ -135,9 +135,9 @@
                 </div>
             </div>
 
-            <div class="career-item relative mb-10 flex flex-col md:flex-row-reverse items-center justify-between w-full">
+            <div class="career-item relative mb-24 flex flex-col md:flex-row-reverse items-center justify-between w-full">
                 <div class="hidden md:block w-5/12 text-left pl-12">
-                    <span class="text-indigo-600 font-bold">07/2019 - 11/2021</span>
+                    <span class="text-indigo-600 font-bold">10/2020 - 11/2021</span>
                     <p class="text-slate-400 text-sm">Gurgaon, India</p>
                 </div>
                 <div class="z-10 bg-indigo-600 w-5 h-5 rounded-full border-4 border-white shadow"></div>
@@ -149,6 +149,28 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 text-lg leading-tight">Training Coordinator</h3>
+                                <p class="text-indigo-600 font-medium text-sm">NIIT Limited</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">Coordinating global learning delivery and operational excellence for enterprise training programs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="career-item relative mb-10 flex flex-col md:flex-row items-center justify-between w-full">
+                <div class="hidden md:block w-5/12 text-right pr-12">
+                    <span class="text-indigo-600 font-bold">07/2019 - 10/2020</span>
+                    <p class="text-slate-400 text-sm">Gurgaon, India</p>
+                </div>
+                <div class="z-10 bg-indigo-600 w-5 h-5 rounded-full border-4 border-white shadow"></div>
+                <div class="career-card w-full md:w-5/12 md:pl-12 mt-6 md:mt-0">
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="logo-box">
+                                <img src="https://logo.clearbit.com/niit.com" alt="NIIT" onerror="this.src='https://ui-avatars.com/api/?name=NIIT&background=222&color=fff'">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-lg leading-tight">Associate Training Coordinator</h3>
                                 <p class="text-indigo-600 font-medium text-sm">NIIT Limited</p>
                             </div>
                         </div>
@@ -177,6 +199,8 @@
         window.onscroll = function() {
             const container = document.querySelector('.timeline-container');
             const progress = document.getElementById('progress-bar');
+            if (!container || !progress) return;
+            
             const scrollPos = window.scrollY - container.offsetTop + (window.innerHeight / 2);
             const height = container.offsetHeight;
             
@@ -187,7 +211,6 @@
             progress.style.height = percentage + "%";
         };
     </script>
-    <!-- Navigation Buttons -->
     <div class="text-center mt-16">
         <hr class="mb-6">
         <button 

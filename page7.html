@@ -3,47 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay | Impact & Recognition</title>
+    <title>Jay | Recognition Gallery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #0f172a; }
-        
-        .project-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 24px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 320px;
-        }
-
-        .project-card:hover {
-            border-color: #6366f1;
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.08);
-            transform: translateY(-4px);
-        }
-
         .gallery-item {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            aspect-ratio: 4 / 3;
             background: #f1f5f9;
             border: 1px solid #e2e8f0;
             transition: all 0.4s ease;
         }
-
         .gallery-item:hover {
             transform: scale(1.02);
             box-shadow: 0 20px 30px rgba(0,0,0,0.1);
             z-index: 10;
         }
-
         .gallery-overlay {
             position: absolute;
             inset: 0;
@@ -55,167 +33,78 @@
             padding: 1.5rem;
             color: white;
         }
-
         .gallery-item:hover .gallery-overlay { opacity: 1; }
-
-        .stat-pill {
-            display: inline-flex;
-            align-items: center;
-            padding: 4px 12px;
-            background: #eef2ff;
-            color: #4f46e5;
-            border-radius: 99px;
-            font-size: 0.75rem;
-            font-weight: 800;
-        }
     </style>
 </head>
 <body class="antialiased pb-20">
 
-    <header class="pt-24 pb-12 px-6 text-center">
-        <h1 class="text-5xl font-black tracking-tighter mb-4">Projects & <span class="text-indigo-600">Impact</span></h1>
-        <p class="text-slate-500 max-w-2xl mx-auto">Strategic implementations and high-scale migrations across global organizations.</p>
+    <header class="pt-24 pb-6 px-6 text-center">
+        <h1 class="text-5xl font-black tracking-tighter mb-4">Impact and <span class="text-indigo-600">Recognition Gallery</span></h1>
+        <p class="text-slate-500 max-w-2xl mx-auto">Visualizing Success & Stakeholder Trust</p>
     </header>
 
-    <section class="max-w-6xl mx-auto px-6 mb-24">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            <div class="project-card">
-                <div>
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="stat-pill underline tracking-tighter decoration-2">GLOBAL OPTIMIZATION</span>
-                        <i data-lucide="zap" class="text-indigo-600 w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-2xl font-extrabold mb-3">Moody’s Corporation</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        Spearheaded the Global System Optimization Project. Implemented advanced configurations and automations that <span class="text-indigo-600 font-bold">reduced manual efforts by 70%</span>. 
-                    </p>
-                </div>
-                <div class="mt-8 pt-6 border-t border-slate-100">
-                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Key Outcome</p>
-                    <p class="text-sm font-bold text-slate-900 italic">"Turned complex manual inputs into actionable, automated workflows globally."</p>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="stat-pill bg-orange-50 text-orange-600">LMS MIGRATION</span>
-                        <i data-lucide="move" class="text-orange-500 w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-2xl font-extrabold mb-3">Hitachi Vantara</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        Delivered a complete migration from <span class="font-bold">Cornerstone to Workday</span> for 600+ entities. Managed end-to-end EIBs, security setup, and global campaigns.
-                    </p>
-                </div>
-                <div class="mt-8 pt-6 border-t border-slate-100">
-                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Key Outcome</p>
-                    <p class="text-sm font-bold text-slate-900 italic">"Successful data integrity for over 600 legal entities within an 11-month timeframe."</p>
-                </div>
-            </div>
-
-            <div class="project-card min-height-0 md:min-h-0 py-8">
-                <h4 class="text-lg font-bold mb-2">Deloitte: Reporting Automation</h4>
-                <p class="text-slate-500 text-sm">Created custom macros to automate LMS completion reports, significantly enhancing data accuracy and reporting velocity.</p>
-            </div>
-
-            <div class="project-card min-height-0 md:min-h-0 py-8">
-                <h4 class="text-lg font-bold mb-2">NIIT: Data Architecture</h4>
-                <p class="text-slate-500 text-sm">Provided technical data support to IBM consultants during the Workday Migration phase, ensuring zero data loss.</p>
-            </div>
-
+    <!-- Impact Section (Always Expanded) -->
+    <section class="max-w-4xl mx-auto px-6 mb-16">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 p-6">
+            <h2 class="text-2xl font-bold text-indigo-600 mb-4">Major Impact Highlights</h2>
+            <ul class="list-disc list-inside space-y-3 text-gray-700">
+                <li><strong>Moody’s Corporation:</strong> CSOD Global System Optimization Project – Implemented automations, configurations, and integrations at global scale, reducing manual efforts by 70%. Received multiple awards from stakeholders for process improvements.</li>
+                <li><strong>Hitachi Vantara:</strong> LMS Migration Project (Cornerstone to Workday) – Delivered full-scale migration for 600+ entities, including EIBs, campaigns, security configuration and project implementations. Earned two Hitachi Silver Awards within 11 months.</li>
+                <li><strong>Deloitte:</strong> Automation Initiative – Created macros to automate LMS completion reports, improving data accuracy and reporting efficiency.</li>
+                <li><strong>NIIT Limited:</strong> CSOD Data Support for Workday Migration – Provided structured data to IBM consultants; recognized with 4 “Star of the Month” awards.</li>
+            </ul>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6">
-        <div class="mb-12">
-            <h2 class="text-3xl font-black tracking-tight mb-2">Recognition <span class="text-indigo-600">Gallery</span></h2>
-            <p class="text-slate-400 text-sm uppercase font-bold tracking-widest">Visualizing Success & Stakeholder Trust</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div class="gallery-item group">
-                <img src="award1.jpg" alt="Hitachi Silver Award" class="w-full h-full object-cover">
-                <div class="gallery-overlay">
-                    <div>
-                        <p class="text-[10px] font-bold text-indigo-400 uppercase">Hitachi Vantara</p>
-                        <p class="font-bold">Silver Award (1 of 2)</p>
-                    </div>
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center -z-10 bg-slate-100 text-slate-300">
-                    <i data-lucide="image" class="w-10 h-10"></i>
-                </div>
+    <!-- Gallery Section -->
+    <section class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Image Cards with Bigger Width -->
+            <div class="gallery-item group col-span-1">
+                <img src="https://media.licdn.com/dms/image/v2/C4D2DAQERa7wSoLqqRw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1627923890735?e=1772902800&v=beta&t=YrSzqvxynmGCw8nz12iJz7F_8O0R9Z1uIV9aN0mStFk" alt="Award 1" class="w-full h-[32rem] object-cover rounded-lg">
             </div>
-
-            <div class="gallery-item group">
-                <img src="award2.jpg" alt="Moody's Impact Award" class="w-full h-full object-cover">
-                <div class="gallery-overlay">
-                    <div>
-                        <p class="text-[10px] font-bold text-indigo-400 uppercase">Moody’s Corp</p>
-                        <p class="font-bold">Impact Award</p>
-                    </div>
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center -z-10 bg-slate-100 text-slate-300">
-                    <i data-lucide="image" class="w-10 h-10"></i>
-                </div>
+            <div class="gallery-item group col-span-1">
+                <img src="https://media.licdn.com/dms/image/v2/C4D2DAQFnS_9kCE_CWA/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1627923945234?e=1772902800&v=beta&t=ZdBwdW-8by8ui0psFxjW8JRGWplRvabhmfsQRECiTow" alt="Award 2" class="w-full h-[32rem] object-cover rounded-lg">
             </div>
-
-            <div class="gallery-item group">
-                <img src="award3.jpg" alt="Star of the Month" class="w-full h-full object-cover">
-                <div class="gallery-overlay">
-                    <div>
-                        <p class="text-[10px] font-bold text-indigo-400 uppercase">NIIT Limited</p>
-                        <p class="font-bold">4x Star of the Month</p>
-                    </div>
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center -z-10 bg-slate-100 text-slate-300">
-                    <i data-lucide="image" class="w-10 h-10"></i>
-                </div>
+            <div class="gallery-item group col-span-1">
+                <img src="https://media.licdn.com/dms/image/v2/C4D2DAQFOIaCqOvGpxQ/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1627924656642?e=1772902800&v=beta&t=UphH14Pes5pUKImuH79tfJDqdLo9bLSVPPwMPXMpXvI" alt="Award 3" class="w-full h-[32rem] object-cover rounded-lg">
             </div>
-
-            <div class="gallery-item group">
-                <img src="award4.jpg" alt="Leadership Recognition" class="w-full h-full object-cover">
-                <div class="gallery-overlay">
-                    <div>
-                        <p class="text-[10px] font-bold text-indigo-400 uppercase">Moody's Leadership</p>
-                        <p class="font-bold">Process Design Award</p>
-                    </div>
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center -z-10 bg-slate-100 text-slate-300">
-                    <i data-lucide="image" class="w-10 h-10"></i>
-                </div>
+            <div class="gallery-item group col-span-1">
+                <img src="https://media.licdn.com/dms/image/v2/C4D2DAQFDJNILybB-4g/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1631270527954?e=1772902800&v=beta&t=SDXPmnRntzjwh00fs-qPaL69evu25-OU20O8vI2cdFE" alt="Award 4" class="w-full h-[32rem] object-cover rounded-lg">
             </div>
-
+            <div class="gallery-item group col-span-1">
+                <img src="https://media.licdn.com/dms/image/v2/C4D2DAQF5LWBe4SxIcQ/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1636537894044?e=1772902800&v=beta&t=mwB9oHQCuV8hq8b2GefiPdNozAKAK3oZ5XTMct9ReqY" alt="Award 5" class="w-full h-[32rem] object-cover rounded-lg">
+            </div>
+            <div class="gallery-item group col-span-1">
+                <img src="https://media.licdn.com/dms/image/v2/C4D2DAQEm0RJasoTIaA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1634910394256?e=1772902800&v=beta&t=oFy-n2Alc2fj9CiMVAEU8E7Q3EIKGd7nSqPRzAf2iqY" alt="Award 6" class="w-full h-[32rem] object-cover rounded-lg">
+            </div>
+            <div class="gallery-item group col-span-1">
+                <img src="https://media.licdn.com/dms/image/v2/D4D2DAQEIm8uFZHCTYg/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1689048067793?e=1772902800&v=beta&t=l30WIjNyKX8eck_j9v8320aIRIuhL_Dub8tAib6TYWs" alt="Award 7" class="w-full h-[32rem] object-cover rounded-lg">
+            </div>
+            <div class="gallery-item group col-span-1">
+                <img src="https://media.licdn.com/dms/image/v2/D4D2DAQGUk7_-wFEcwg/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1697529805080?e=1772902800&v=beta&t=z13zbTFl0Nn3RQ83I_IPp8xYIRGMAxCCtNLPaQmGDcU" alt="Award 8" class="w-full h-[32rem] object-cover rounded-lg">
+            </div>
         </div>
     </section>
 
-    <div class="mt-24 text-center">
-        <button onclick="window.history.back()" class="group flex items-center gap-2 mx-auto text-slate-400 font-bold hover:text-indigo-600 transition uppercase text-xs tracking-widest">
-            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Return to Skills Hub
+  <!-- Navigation Buttons -->
+    <div class="text-center mt-16">
+        <hr class="mb-6">
+        <button 
+            onclick="location.href='page6.html'" 
+            class="px-6 py-3 bg-gray-600 text-white rounded-lg mr-4 hover:bg-gray-700 transition">
+            ← Back
+        </button>
+
+        <button 
+            onclick="location.href='page8.html'" 
+            class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+            Next →
         </button>
     </div>
 
     <script>
         lucide.createIcons();
     </script>
-<!-- Navigation Buttons -->
-<div class="text-center mt-16">
-    <hr class="mb-6">
-
-    <!-- Back Button -->
-    <button 
-        onclick="location.href='page6.html'" 
-        class="px-6 py-3 bg-gray-600 text-white rounded-lg mr-4 hover:bg-gray-700 transition">
-        ← Back
-    </button>
-
-    <!-- Next Button -->
-    <button 
-        onclick="location.href='page8.html'" 
-        class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-        Next →
-    </button>
-</div>
 </body>
 </html>
