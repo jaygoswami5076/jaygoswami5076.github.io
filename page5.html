@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Goswami | Platform Expertise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfd; }
+        .page-section { display: none; min-height: 100vh; padding: 80px 5%; animation: fadeIn 0.4s ease-out; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .tool-card { transition: all 0.4s ease; border: 1px solid #e2e8f0; background: white; position: relative; overflow: hidden; }
+        .tool-card:hover { transform: translateY(-10px); border-color: #4f46e5; box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.15); }
+        .tool-logo { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: #64748b; font-weight: 700; transition: all 0.2s; cursor: pointer; }
+        .back-btn:hover { color: #4f46e5; transform: translateX(-4px); }
+    </style>
+</head>
+<body>
+
+    <section id="platforms" class="page-section active">
+        <div class="max-w-6xl mx-auto">
+            <header class="mb-16">
+                <h2 class="text-indigo-600 font-bold uppercase tracking-widest text-xs mb-3">Technical Stack</h2>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">System & Platform Expertise</h1>
+                <p class="text-slate-500 mt-4 max-w-2xl text-lg leading-relaxed">Select a platform to explore detailed certifications and technical mastery.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div onclick="showPage('cornerstone')" class="tool-card p-10 rounded-[2.5rem] cursor-pointer group">
+                    <div class="tool-logo bg-blue-50"><i data-lucide="layers" class="text-blue-600"></i></div>
+                    <h4 class="font-extrabold text-2xl text-slate-900 group-hover:text-indigo-600">Cornerstone</h4>
+                    <p class="text-slate-500 mt-2 text-sm">LMS, Content, & Experience Administration.</p>
+                </div>
+
+                <div onclick="showPage('workday')" class="tool-card p-10 rounded-[2.5rem] cursor-pointer group">
+                    <div class="tool-logo bg-orange-50"><i data-lucide="box" class="text-orange-600"></i></div>
+                    <h4 class="font-extrabold text-2xl text-slate-900 group-hover:text-indigo-600">Workday</h4>
+                    <p class="text-slate-500 mt-2 text-sm">Strategic Reporting & Learning Systems.</p>
+                </div>
+
+                <div onclick="showPage('sap')" class="tool-card p-10 rounded-[2.5rem] cursor-pointer group">
+                    <div class="tool-logo bg-sky-50"><i data-lucide="shield-check" class="text-sky-600"></i></div>
+                    <h4 class="font-extrabold text-2xl text-slate-900 group-hover:text-indigo-600">SAP SuccessFactors</h4>
+                    <p class="text-slate-500 mt-2 text-sm">Security (SFX) & Talent Management.</p>
+                </div>
+
+                <div onclick="showPage('ai')" class="tool-card p-10 rounded-[2.5rem] cursor-pointer group">
+                    <div class="tool-logo bg-purple-50"><i data-lucide="sparkles" class="text-purple-600"></i></div>
+                    <h4 class="font-extrabold text-2xl text-slate-900 group-hover:text-indigo-600">AI Tools</h4>
+                    <p class="text-slate-500 mt-2 text-sm">Microsoft Copilot & Generative AI Solutions.</p>
+                </div>
+
+                <div onclick="showPage('lxp')" class="tool-card p-10 rounded-[2.5rem] cursor-pointer group">
+                    <div class="tool-logo bg-pink-50"><i data-lucide="zap" class="text-pink-600"></i></div>
+                    <h4 class="font-extrabold text-2xl text-slate-900 group-hover:text-indigo-600">LXP's</h4>
+                    <p class="text-slate-500 mt-2 text-sm">EdCast, Degreed & Galaxy Platforms.</p>
+                </div>
+
+                <div onclick="showPage('servicenow')" class="tool-card p-10 rounded-[2.5rem] cursor-pointer group">
+                    <div class="tool-logo bg-emerald-50"><i data-lucide="workflow" class="text-emerald-600"></i></div>
+                    <h4 class="font-extrabold text-2xl text-slate-900 group-hover:text-indigo-600">ServiceNow</h4>
+                    <p class="text-slate-500 mt-2 text-sm">HRSD & Employee Service Center.</p>
+                </div>
+
+                <div onclick="showPage('saba')" class="tool-card p-10 rounded-[2.5rem] cursor-pointer group">
+                    <div class="tool-logo bg-slate-100"><i data-lucide="cloud" class="text-slate-600"></i></div>
+                    <h4 class="font-extrabold text-2xl text-slate-900 group-hover:text-indigo-600">Saba Cloud</h4>
+                    <p class="text-slate-500 mt-2 text-sm">Global Learning Admin & Delivery.</p>
+                </div>
+
+                <div onclick="showPage('workhuman')" class="tool-card p-10 rounded-[2.5rem] cursor-pointer group">
+                    <div class="tool-logo bg-red-50"><i data-lucide="heart" class="text-red-600"></i></div>
+                    <h4 class="font-extrabold text-2xl text-slate-900 group-hover:text-indigo-600">Workhuman</h4>
+                    <p class="text-slate-500 mt-2 text-sm">Social Recognition & Talent Culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cornerstone" class="page-section bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div onclick="showPage('platforms')" class="back-btn mb-12"><i data-lucide="chevron-left"></i> Back to Hub</div>
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">Cornerstone Expertise</h2>
+            <div class="bg-slate-50 border border-slate-100 p-8 rounded-[2rem]">
+                <p class="italic text-slate-500">Cornerstone content placeholder...</p>
+            </div>
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('platforms')" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600 hover:bg-slate-200 transition">Hub</button>
+                <button onclick="showPage('workday')" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:scale-105 transition">Next: Workday</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="workday" class="page-section bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div onclick="showPage('platforms')" class="back-btn mb-12"><i data-lucide="chevron-left"></i> Back to Hub</div>
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">Workday Expertise</h2>
+            <div class="bg-slate-50 border border-slate-100 p-8 rounded-[2rem]">
+                <p class="italic text-slate-500">Workday content placeholder...</p>
+            </div>
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('cornerstone')" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600">Back</button>
+                <button onclick="showPage('sap')" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:scale-105 transition">Next: SAP</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="sap" class="page-section bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div onclick="showPage('platforms')" class="back-btn mb-12"><i data-lucide="chevron-left"></i> Back to Hub</div>
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">SAP SuccessFactors Expertise</h2>
+            <div class="bg-slate-50 border border-slate-100 p-8 rounded-[2rem]">
+                <p class="italic text-slate-500">SAP SFX content placeholder...</p>
+            </div>
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('workday')" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600">Back</button>
+                <button onclick="showPage('ai')" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:scale-105 transition">Next: AI Tools</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai" class="page-section bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div onclick="showPage('platforms')" class="back-btn mb-12"><i data-lucide="chevron-left"></i> Back to Hub</div>
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">AI Tools Expertise</h2>
+            <div class="bg-slate-50 border border-slate-100 p-8 rounded-[2rem]">
+                <p class="italic text-slate-500">AI & Copilot content placeholder...</p>
+            </div>
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('sap')" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600">Back</button>
+                <button onclick="showPage('lxp')" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:scale-105 transition">Next: LXPs</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="lxp" class="page-section bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div onclick="showPage('platforms')" class="back-btn mb-12"><i data-lucide="chevron-left"></i> Back to Hub</div>
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">LXP Expertise</h2>
+            <div class="bg-slate-50 border border-slate-100 p-8 rounded-[2rem]">
+                <p class="italic text-slate-500">LXP content placeholder...</p>
+            </div>
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('ai')" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600">Back</button>
+                <button onclick="showPage('servicenow')" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:scale-105 transition">Next: ServiceNow</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicenow" class="page-section bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div onclick="showPage('platforms')" class="back-btn mb-12"><i data-lucide="chevron-left"></i> Back to Hub</div>
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">ServiceNow Expertise</h2>
+            <div class="bg-slate-50 border border-slate-100 p-8 rounded-[2rem]">
+                <p class="italic text-slate-500">ServiceNow content placeholder...</p>
+            </div>
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('lxp')" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600">Back</button>
+                <button onclick="showPage('saba')" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:scale-105 transition">Next: Saba</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="saba" class="page-section bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div onclick="showPage('platforms')" class="back-btn mb-12"><i data-lucide="chevron-left"></i> Back to Hub</div>
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">Saba Cloud Expertise</h2>
+            <div class="bg-slate-50 border border-slate-100 p-8 rounded-[2rem]">
+                <p class="italic text-slate-500">Saba content placeholder...</p>
+            </div>
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('servicenow')" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600">Back</button>
+                <button onclick="showPage('workhuman')" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:scale-105 transition">Next: Workhuman</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="workhuman" class="page-section bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div onclick="showPage('platforms')" class="back-btn mb-12"><i data-lucide="chevron-left"></i> Back to Hub</div>
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-8">Workhuman Expertise</h2>
+            <div class="bg-slate-50 border border-slate-100 p-8 rounded-[2rem]">
+                <p class="italic text-slate-500">Workhuman content placeholder...</p>
+            </div>
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('saba')" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold text-slate-600">Back</button>
+                <button onclick="showPage('platforms')" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:scale-105 transition">Finish Hub</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            if(target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+<!-- Navigation Buttons -->
+<div class="text-center mt-16">
+    <hr class="mb-6">
+
+    <!-- Back Button -->
+    <button 
+        onclick="location.href='page4.html'" 
+        class="px-6 py-3 bg-gray-600 text-white rounded-lg mr-4 hover:bg-gray-700 transition">
+        ← Back
+    </button>
+
+    <!-- Next Button -->
+    <button 
+        onclick="location.href='page6.html'" 
+        class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+        Next →
+    </button>
+</div>
+</body>
+</html>

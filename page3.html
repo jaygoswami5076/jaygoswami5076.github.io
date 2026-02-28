@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Profile | Jay Goswami</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        
+        .edu-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 320px; /* Fixed height for uniformity */
+        }
+
+        .edu-card:hover {
+            transform: translateY(-5px);
+            border-color: #4f46e5;
+            background-color: #ffffff;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .status-badge-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .6; }
+        }
+    </style>
+</head>
+<body class="py-16 px-6">
+
+    <div class="max-w-6xl mx-auto">
+        <div class="mb-12">
+            <h2 class="text-indigo-600 font-bold uppercase tracking-[0.2em] text-sm mb-2">Academic Foundation</h2>
+            <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Education & Qualifications</h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            
+            <div class="edu-card bg-white rounded-[2rem] p-8">
+                <div class="flex justify-between items-start">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center">
+                        <i data-lucide="award" class="text-indigo-600 w-6 h-6"></i>
+                    </div>
+                    <span class="status-badge-pulse bg-amber-50 text-amber-700 text-[10px] font-black px-3 py-1 rounded-full border border-amber-200 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                        AWAITING RESULT
+                    </span>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-extrabold text-slate-900 leading-tight">Master of Business Administration</h3>
+                    <p class="text-indigo-600 font-bold text-sm mt-1 uppercase">Human Resource Management</p>
+                    <div class="flex items-center gap-2 mt-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Indira_Gandhi_National_Open_University_logo.svg/1200px-Indira_Gandhi_National_Open_University_logo.svg.png" class="h-6 w-6 object-contain" alt="IGNOU">
+                        <p class="text-slate-500 font-semibold text-sm">IGNOU, New Delhi</p>
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-50 flex justify-between items-center text-xs font-bold text-slate-400">
+                    <span>03/2023 — PRESENT</span>
+                    <span>INDIA</span>
+                </div>
+            </div>
+
+            <div class="edu-card bg-white rounded-[2rem] p-8">
+                <div class="flex justify-between items-start">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center">
+                        <i data-lucide="book-open" class="text-indigo-600 w-6 h-6"></i>
+                    </div>
+                    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                        COMPLETED
+                    </span>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-extrabold text-slate-900 leading-tight">Master of Arts</h3>
+                    <p class="text-indigo-600 font-bold text-sm mt-1 uppercase">English Language & Literature</p>
+                    <div class="flex items-center gap-2 mt-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Indira_Gandhi_National_Open_University_logo.svg/1200px-Indira_Gandhi_National_Open_University_logo.svg.png" class="h-6 w-6 object-contain" alt="IGNOU">
+                        <p class="text-slate-500 font-semibold text-sm">IGNOU, New Delhi</p>
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-50 flex justify-between items-center text-xs font-bold text-slate-400">
+                    <span>03/2022 — 03/2024</span>
+                    <span>INDIA</span>
+                </div>
+            </div>
+
+            <div class="edu-card bg-white rounded-[2rem] p-8">
+                <div class="flex justify-between items-start">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center">
+                        <i data-lucide="settings" class="text-indigo-600 w-6 h-6"></i>
+                    </div>
+                    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                        COMPLETED
+                    </span>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-extrabold text-slate-900 leading-tight">Post Graduate Diploma</h3>
+                    <p class="text-indigo-600 font-bold text-sm mt-1 uppercase">Operations Management</p>
+                    <div class="flex items-center gap-2 mt-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Indira_Gandhi_National_Open_University_logo.svg/1200px-Indira_Gandhi_National_Open_University_logo.svg.png" class="h-6 w-6 object-contain" alt="IGNOU">
+                        <p class="text-slate-500 font-semibold text-sm">IGNOU, New Delhi</p>
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-50 flex justify-between items-center text-xs font-bold text-slate-400">
+                    <span>03/2020 — 03/2021</span>
+                    <span>INDIA</span>
+                </div>
+            </div>
+
+            <div class="edu-card bg-white rounded-[2rem] p-8">
+                <div class="flex justify-between items-start">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center">
+                        <i data-lucide="graduation-cap" class="text-indigo-600 w-6 h-6"></i>
+                    </div>
+                    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                        COMPLETED
+                    </span>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-extrabold text-slate-900 leading-tight">BBA</h3>
+                    <p class="text-indigo-600 font-bold text-sm mt-1 uppercase">Business Administration & Management</p>
+                    <div class="flex items-center gap-2 mt-4">
+                        <div class="w-6 h-6 bg-slate-100 rounded flex items-center justify-center text-[10px] font-bold text-slate-400">DBU</div>
+                        <p class="text-slate-500 font-semibold text-sm">Dr. Bhimrao Ambedkar University</p>
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-50 flex justify-between items-center text-xs font-bold text-slate-400">
+                    <span>04/2016 — 04/2019</span>
+                    <span>ETAH, INDIA</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div class="mt-16 flex flex-col items-center">
+            <div class="inline-flex items-center gap-3 px-6 py-4 bg-white border border-indigo-100 rounded-2xl shadow-sm">
+                <div class="flex -space-x-2">
+                    <div class="w-8 h-8 rounded-full bg-indigo-600 border-2 border-white flex items-center justify-center">
+                        <i data-lucide="zap" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-purple-600 border-2 border-white flex items-center justify-center">
+                        <i data-lucide="database" class="w-4 h-4 text-white"></i>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm font-semibold italic">
+                    "Actively integrating these academic foundations with my 
+                    <span class="text-indigo-600">Learning Ecosystem Strategy</span> and 
+                    <span class="text-purple-600">HRIS Transformation</span> journey."
+                </p>
+            </div>
+        </div>
+    <script>
+        lucide.createIcons();
+    </script>
+<!-- Navigation Buttons -->
+<div class="text-center mt-16">
+    <hr class="mb-6">
+
+    <!-- Back Button -->
+    <button 
+        onclick="location.href='page2.html'" 
+        class="px-6 py-3 bg-gray-600 text-white rounded-lg mr-4 hover:bg-gray-700 transition">
+        ← Back
+    </button>
+
+    <!-- Next Button -->
+    <button 
+        onclick="location.href='page4.html'" 
+        class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+        Next →
+    </button>
+</div>
+</body>
+</html>
+</html>

@@ -1,169 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay Goswami | Digital Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --glass-bg: rgba(255, 255, 255, 0.9);
-            --primary-accent: #2563eb;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jay Goswami | HR Technology Portfolio</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
 
-        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
+<style>
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+}
 
-        .page {
-            min-height: 100vh;
-            width: 100vw;
-            display: none;
-            padding: 60px 20px;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.5s ease;
-        }
+.page-section {
+    display: none;
+    min-height: 100vh;
+    animation: fadeSlide 0.6s ease;
+}
 
-        .active { display: flex; animation: slideUp 0.6s ease-out; }
+.page-section.active {
+    display: flex;
+}
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+@keyframes fadeSlide {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1; transform: translateY(0);}
+}
 
-        /* --- Welcome Page --- */
-        #welcome { text-align: center; background: radial-gradient(circle at top right, #eff6ff, #f8fafc); }
-        .hero-title { font-size: 4.5rem; font-weight: 800; background: linear-gradient(to right, #1e293b, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
-        .hero-subtitle { font-size: 1.5rem; color: var(--text-muted); margin-bottom: 40px; }
+.light-hero {
+    background: linear-gradient(135deg, #eef2ff 0%, #ffffff 50%, #f8fafc 100%);
+}
 
-        /* --- Bio Page --- */
-        .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; width: 100%; }
-        .bio-card { background: white; padding: 30px; border-radius: 20px; box-shadow: var(--card-shadow); border: 1px solid #e2e8f0; }
-        .bio-card h3 { color: var(--primary-accent); margin-bottom: 15px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
-        .list-item { margin-bottom: 10px; font-size: 0.95rem; display: flex; justify-content: space-between; }
-        .credly-placeholder { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #e0e7ff; color: #4338ca; border-radius: 10px; text-decoration: none; font-weight: 600; }
+.badge {
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    color: #4f46e5;
+}
 
-        /* --- Tools Grid (Netflix Style) --- */
-        .tools-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 1200px; }
-        .tool-card-wrapper { width: 200px; height: 300px; border-radius: 15px; transition: transform 0.4s ease; background: #fff; box-shadow: var(--card-shadow); display: flex; align-items: center; justify-content: center; font-weight: 800; cursor: pointer; border: 1px solid #e2e8f0; }
-        .tool-card-wrapper:hover { transform: scale(1.1); z-index: 10; border: 2px solid var(--primary-accent); }
+.cta-button {
+    background: #4f46e5;
+    color: white;
+    transition: all 0.3s ease;
+}
 
-        /* --- Achievement Gallery --- */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; width: 100%; max-width: 1100px; }
-        .gallery-item { aspect-ratio: 1; background: #fff; border: 2px dashed #cbd5e1; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.8rem; }
-
-        /* --- Navigation --- */
-        .nav-btns { margin-top: 50px; display: flex; gap: 20px; }
-        .btn { padding: 15px 40px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; transition: 0.3s; }
-        .btn-primary { background: var(--primary-accent); color: white; }
-        .btn-secondary { background: white; color: var(--text-main); border: 1px solid #e2e8f0; }
-        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
-
-        /* --- Contact --- */
-        .contact-box { background: white; padding: 40px; border-radius: 24px; box-shadow: var(--card-shadow); text-align: center; }
-    </style>
+.cta-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(79,70,229,0.25);
+}
+</style>
 </head>
-<body>
 
-    <section id="p1" class="page active">
-        <h1 class="hero-title">Welcome to Jay's Digital Resume</h1>
-        <p class="hero-subtitle">Architecting Enterprise Learning Ecosystems</p>
-        <button class="btn btn-primary" onclick="showPage('p2')">Enter Experience</button>
-    </section>
+<body class="min-h-screen">
 
-    <section id="p2" class="page">
-        <h2 style="margin-bottom: 30px;">Professional Narrative</h2>
-        <div class="bio-grid">
-            <div class="bio-card">
-                <h3>Career Milestones</h3>
-                <div class="list-item"><span>Moody's Corporation</span> <b>Current</b></div>
-                <div class="list-item"><span>Hitachi Digital Services</span> <b>2022-2023</b></div>
-                <div class="list-item"><span>Deloitte</span> <b>2021-2022</b></div>
-                <div class="list-item"><span>NIIT Limited</span> <b>2019-2021</b></div>
-            </div>
-            <div class="bio-card">
-                <h3>Education & Certs</h3>
-                <p>• MBA in Human Resource Management (IGNOU) [cite: 106]</p>
-                <p>• MA English Language and Literature [cite: 109]</p>
-                <a href="INSERT_YOUR_CREDLY_LINK_HERE" class="credly-placeholder">View Credly Badges →</a>
-            </div>
-        </div>
-        <div class="nav-btns">
-            <button class="btn btn-secondary" onclick="showPage('p1')">Back</button>
-            <button class="btn btn-primary" onclick="showPage('p3')">View Stack</button>
-        </div>
-    </section>
+<main class="flex-grow">
 
-    <section id="p3" class="page">
-        <h2 style="margin-bottom: 40px;">Ecosystem Expertise</h2>
-        <div class="tools-container">
-            <div class="tool-card-wrapper">CORNERSTONE</div>
-            <div class="tool-card-wrapper">WORKDAY</div>
-            <div class="tool-card-wrapper">SAP SF</div>
-            <div class="tool-card-wrapper">SABA</div>
-            <div class="tool-card-wrapper">WORKHUMAN</div>
-            <div class="tool-card-wrapper">SERVICENOW</div>
-        </div>
-        <div class="nav-btns">
-            <button class="btn btn-secondary" onclick="showPage('p2')">Back</button>
-            <button class="btn btn-primary" onclick="showPage('p4')">Achievements</button>
-        </div>
-    </section>
+<!-- WELCOME HERO -->
+<section id="welcome" class="page-section active light-hero items-center justify-center text-center px-6">
 
-    <section id="p4" class="page">
-        <h2 style="margin-bottom: 30px;">Success Gallery</h2>
-        <div class="gallery">
-            <div class="gallery-item">Achievement 1</div>
-            <div class="gallery-item">Achievement 2</div>
-            <div class="gallery-item">Achievement 3</div>
-            <div class="gallery-item">Achievement 4</div>
-            <div class="gallery-item">Achievement 5</div>
-            <div class="gallery-item">Achievement 6</div>
-            <div class="gallery-item">Achievement 7</div>
-            <div class="gallery-item">Achievement 8</div>
-            <div class="gallery-item">Achievement 9</div>
-            <div class="gallery-item">Achievement 10</div>
-            <div class="gallery-item">Achievement 11</div>
-            <div class="gallery-item)Achievement 12</div>
-            <div class="gallery-item">Achievement 13</div>
-            <div class="gallery-item">Achievement 14</div>
-            <div class="gallery-item">Achievement 15</div>
-        </div>
-        <div class="nav-btns">
-            <button class="btn btn-secondary" onclick="showPage('p3')">Back</button>
-            <button class="btn btn-primary" onclick="showPage('p5')">Contact Me</button>
-        </div>
-    </section>
+    <div class="max-w-4xl">
 
-    <section id="p5" class="page">
-        <div class="contact-box">
-            <h1 style="color: var(--primary-accent); margin-bottom: 15px;">Thank You for Visiting</h1>
-            <p style="margin-bottom: 30px;">Interested in collaborating? Here's how to reach me:</p>
-            <div style="text-align: left; line-height: 2;">
-                <p>📍 <b>Location:</b> New Delhi, India, 110007 </p>
-                <p>📧 <b>Email:</b> jay.goswami.5076@gmail.com </p>
-                <p>📞 <b>Phone:</b> (+91) 9458583321 </p>
-                <p>🔗 <b>LinkedIn:</b> linkedin.com/in/jay-goswami-5076 </p>
-            </div>
+        <!-- Professional Badge -->
+        <div class="inline-flex items-center px-6 py-2 mb-8 rounded-full badge text-sm font-semibold tracking-wide uppercase">
+            HR Technology | HRIS | Digital Transformation
         </div>
-        <div class="nav-btns">
-            <button class="btn btn-secondary" onclick="showPage('p4')">Back</button>
-            <button class="btn btn-primary" onclick="showPage('p1')">Home</button>
-        </div>
-    </section>
 
-    <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0,0);
-        }
-    </script>
+        <!-- Headline -->
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+            Jay Goswami
+        </h1>
+
+        <h2 class="text-xl md:text-2xl font-semibold text-indigo-600 mb-8">
+            HRIS Consultant & Enterprise HR Technology Strategist
+        </h2>
+
+        <!-- Description -->
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+            Delivering scalable HR system transformation, optimizing learning ecosystems,
+            and leading global HR technology initiatives that elevate workforce experience
+            and drive measurable business impact.
+        </p>
+
+<!-- CTA -->
+<button 
+    onclick="location.href='page2.html'" 
+    class="cta-button px-12 py-4 rounded-2xl text-lg font-bold shadow-md">
+    Enter Professional Profile
+</button>
+        <!-- Subtle Footer Tagline -->
+        <div class="mt-16 text-sm text-slate-400 tracking-wide">
+            Enterprise HR Systems • LMS Optimization • Global Implementation Leadership
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<script>
+lucide.createIcons();
+</script>
+
 </body>
 </html>

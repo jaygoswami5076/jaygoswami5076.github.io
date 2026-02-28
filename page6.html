@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay | Mastery Walkthrough</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        
+        .page-section { display: none; min-height: 100vh; animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .page-section.active { display: block; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Modernized Skill Cards */
+        .mastery-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mastery-card:hover {
+            border-color: #6366f1;
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .skill-pill {
+            display: inline-flex;
+            padding: 6px 14px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #475569;
+            margin: 4px;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .skill-pill:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+            border-color: #c7d2fe;
+        }
+
+        .expert-tag {
+            background: linear-gradient(135deg, #4f46e5, #818cf8);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md border border-slate-200 px-6 py-3 rounded-2xl shadow-sm flex gap-8 text-xs font-bold text-slate-500">
+        <button onclick="showPage('hub')" class="hover:text-indigo-600 uppercase tracking-tighter">Skill Hub</button>
+        <button onclick="showPage('lms')" class="hover:text-indigo-600 uppercase tracking-tighter">LMS & CSOD</button>
+        <button onclick="showPage('workday')" class="hover:text-indigo-600 uppercase tracking-tighter">Workday</button>
+        <button onclick="showPage('ai-automation')" class="hover:text-indigo-600 uppercase tracking-tighter">AI & Tech</button>
+    </nav>
+
+    <section id="hub" class="page-section active pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto text-center mb-16">
+            <h1 class="text-6xl font-extrabold tracking-tighter mb-6">Mastery <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-500">Portfolio</span></h1>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">Explore a comprehensive walkthrough of my technical competencies, HRIS expertise, and AI-driven workflow solutions.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div onclick="showPage('lms')" class="mastery-card group cursor-pointer">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                        <i data-lucide="layers"></i>
+                    </div>
+                    <span class="expert-tag">Lead Admin</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">LMS & CSOD</h3>
+                <p class="text-slate-500 text-sm mb-6">Governance, Global Security, and Skills Frameworks.</p>
+                <div class="flex flex-wrap">
+                    <span class="skill-pill">CSOD</span><span class="skill-pill">Saba</span><span class="skill-pill">Governance</span>
+                </div>
+            </div>
+
+            <div onclick="showPage('workday')" class="mastery-card group cursor-pointer">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all">
+                        <i data-lucide="box"></i>
+                    </div>
+                    <span class="expert-tag text-orange-600 border border-orange-200 bg-orange-50">Config Expert</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Workday Ecosystem</h3>
+                <p class="text-slate-500 text-sm mb-6">EIBs, Security Policies, and Custom Reporting.</p>
+                <div class="flex flex-wrap">
+                    <span class="skill-pill">Report Writer</span><span class="skill-pill">EIB</span><span class="skill-pill">HCM</span>
+                </div>
+            </div>
+
+            <div onclick="showPage('ai-automation')" class="mastery-card group cursor-pointer border-indigo-200 bg-indigo-50/30">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <span class="expert-tag">Future-Ready</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">AI & Generative Tech</h3>
+                <p class="text-slate-500 text-sm mb-6">Prompt Engineering, Chatbot Builders, and Copilot.</p>
+                <div class="flex flex-wrap">
+                    <span class="skill-pill">GenAI</span><span class="skill-pill">Agents</span><span class="skill-pill">Scripts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lms" class="page-section pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black tracking-tight mb-12">LMS & <span class="text-indigo-600">Cornerstone (CSOD)</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="mastery-card col-span-2">
+                    <h4 class="font-bold text-indigo-600 mb-6 uppercase tracking-widest text-xs">Full-Stack Administration</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="space-y-2">
+                            <p class="text-xs font-bold text-slate-400">CORE & SECURITY</p>
+                            <div class="skill-pill">Governance</div><div class="skill-pill">Security Constraints</div>
+                            <div class="skill-pill">Core Preferences</div><div class="skill-pill">Global Email Admin</div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-xs font-bold text-slate-400">SKILLS & CONTENT</p>
+                            <div class="skill-pill bg-indigo-50 border-indigo-100">Skills & Competencies Frameworks</div>
+                            <div class="skill-pill">Learning Communities</div><div class="skill-pill">SCORM/AICC</div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-xs font-bold text-slate-400">DATA & AUTOMATION</p>
+                            <div class="skill-pill">Edge Import</div><div class="skill-pill">Reporting 2.0</div>
+                            <div class="skill-pill">Automation Workflows</div><div class="skill-pill">API Secrets</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mastery-card">
+                    <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4 text-indigo-500"></i> Learning Operations</h4>
+                    <ul class="text-sm text-slate-600 space-y-3">
+                        <li>• ILT/VILT Session Management</li>
+                        <li>• Curriculum Design (Dynamic & Standard)</li>
+                        <li>• Roster & Attendance Tracking</li>
+                        <li>• Campaign & Program Management</li>
+                    </ul>
+                </div>
+
+                <div class="mastery-card">
+                    <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2"><i data-lucide="bar-chart-3" class="w-4 h-4 text-indigo-500"></i> Analytics</h4>
+                    <div class="flex flex-wrap">
+                        <span class="skill-pill">Reporting 2.0</span><span class="skill-pill">Metrics That Matter</span>
+                        <span class="skill-pill">Standard & Custom Reports</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('hub')" class="font-bold text-slate-400 hover:text-slate-600 uppercase text-xs tracking-widest">Return to Hub</button>
+                <button onclick="showPage('workday')" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-indigo-600 transition">NEXT: WORKDAY <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="workday" class="page-section pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black tracking-tight mb-12">Workday <span class="text-orange-600">Expertise</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="mastery-card bg-orange-50/20 border-orange-100">
+                    <h4 class="font-bold text-orange-600 mb-6 uppercase tracking-widest text-xs">Reporting & Security</h4>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white rounded-xl border border-orange-100 shadow-sm">
+                            <p class="font-bold text-sm text-slate-900">Workday Report Writer</p>
+                            <p class="text-xs text-slate-500">Officially trained by Workday on Custom Reporting.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-orange-100 shadow-sm">
+                            <p class="font-bold text-sm text-slate-900">Security Configuration</p>
+                            <p class="text-xs text-slate-500">Security Groups, Domain Policy activation, and MDF Permissions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mastery-card">
+                    <h4 class="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Data Management</h4>
+                    <div class="flex flex-wrap">
+                        <span class="skill-pill">Workday EIB</span>
+                        <span class="skill-pill">Inbound Integrations</span>
+                        <span class="skill-pill">Core HCM</span>
+                        <span class="skill-pill">Role-Based Permissions</span>
+                    </div>
+                </div>
+
+                <div class="mastery-card col-span-2">
+                    <h4 class="font-bold text-slate-900 mb-4 uppercase tracking-widest text-xs text-center">Additional HRIS / HCM Foundations</h4>
+                    <div class="flex justify-center flex-wrap gap-4">
+                        <div class="px-6 py-4 bg-white border border-slate-200 rounded-2xl text-center shadow-sm">
+                            <p class="font-bold text-indigo-600">SAP SuccessFactors</p>
+                            <p class="text-[10px] text-slate-400">Performance & Goals | Calibration</p>
+                        </div>
+                        <div class="px-6 py-4 bg-white border border-slate-200 rounded-2xl text-center shadow-sm">
+                            <p class="font-bold text-indigo-600">WorkHuman</p>
+                            <p class="text-[10px] text-slate-400">Social Recognition Platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 flex justify-between">
+                <button onclick="showPage('lms')" class="font-bold text-slate-400 hover:text-slate-600 uppercase text-xs tracking-widest">Back to LMS</button>
+                <button onclick="showPage('ai-automation')" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-indigo-600 transition">NEXT: AI & TECH <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-automation" class="page-section pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black tracking-tight mb-12">AI, Automation & <span class="text-indigo-600">Custom Dev</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="mastery-card bg-indigo-600 text-white">
+                    <h4 class="font-bold text-indigo-200 mb-4 uppercase tracking-widest text-xs">Generative AI</h4>
+                    <ul class="text-sm space-y-2 opacity-90">
+                        <li>• Prompt Engineering</li>
+                        <li>• AI Agents & Copilot</li>
+                        <li>• AI-Assisted LMS Configs</li>
+                    </ul>
+                    <i data-lucide="sparkles" class="absolute -bottom-4 -right-4 w-20 h-20 text-white/10"></i>
+                </div>
+
+                <div class="mastery-card">
+                    <h4 class="font-bold text-slate-900 mb-4 uppercase tracking-widest text-xs">Custom Builder</h4>
+                    <p class="text-xs text-slate-500 mb-4">Utilizing AI for advanced front-end solutions.</p>
+                    <div class="flex flex-wrap">
+                        <span class="skill-pill">HTML/CSS</span><span class="skill-pill">JavaScript</span><span class="skill-pill">Chatbot Build</span>
+                    </div>
+                </div>
+
+                <div class="mastery-card">
+                    <h4 class="font-bold text-slate-900 mb-4 uppercase tracking-widest text-xs">Utilities</h4>
+                    <div class="flex flex-wrap">
+                        <span class="skill-pill">Power Automate</span><span class="skill-pill">Postman</span><span class="skill-pill">Zoom/WebEx</span>
+                    </div>
+                </div>
+
+                <div class="mastery-card col-span-1 lg:col-span-3">
+                    <h4 class="font-bold text-slate-400 mb-6 text-center uppercase tracking-widest text-xs">Professional Synergy & Collaboration</h4>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="skill-pill">Stakeholder Management</span>
+                        <span class="skill-pill">Process Documentation</span>
+                        <span class="skill-pill">Cross-Functional Coordination</span>
+                        <span class="skill-pill">Problem Solving</span>
+                        <span class="skill-pill">Admin Enablement</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <button onclick="showPage('hub')" class="px-12 py-4 border-2 border-slate-900 rounded-2xl font-bold hover:bg-slate-900 hover:text-white transition">FINISH WALKTHROUGH</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+
+        function showPage(id) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById(id);
+            if(target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+<!-- Navigation Buttons -->
+<div class="text-center mt-16">
+    <hr class="mb-6">
+
+    <!-- Back Button -->
+    <button 
+        onclick="location.href='page5.html'" 
+        class="px-6 py-3 bg-gray-600 text-white rounded-lg mr-4 hover:bg-gray-700 transition">
+        ← Back
+    </button>
+
+    <!-- Next Button -->
+    <button 
+        onclick="location.href='page7.html'" 
+        class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+        Next →
+    </button>
+</div>
+</body>
+</html>
