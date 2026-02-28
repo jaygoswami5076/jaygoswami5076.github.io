@@ -1,0 +1,326 @@
+Workday GOAT Code
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workday - Jay Goswami Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wdBlue: "#005CB9",
+            wdHover: "#0875e1",
+            wdBg: "#f3f5f7",
+            wdText: "#333333",
+            wdOrange: "#ff7a00",
+            wdGreen: "#087038"
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: "Inter", sans-serif; background-color: #f3f5f7; color: #333; }
+    .wd-card { transition: all 0.2s ease; border: 1px solid #e1e1e1; }
+    .wd-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-color: #005CB9; }
+    .sidebar-item { transition: background 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; }
+    .sidebar-item:hover { background-color: rgba(255,255,255,0.2); }
+    .status-pill { padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .skill-bar { height: 6px; border-radius: 3px; background: #e1e1e1; overflow: hidden; margin-top: 8px; }
+    .skill-progress { height: 100%; background: #005CB9; border-radius: 3px; }
+  </style>
+</head>
+<body class="h-screen flex flex-col">
+
+  <header class="h-16 bg-white border-b flex items-center justify-between px-6 z-50 shadow-sm">
+    <div class="flex items-center gap-4">
+      <div class="p-2 bg-wdBlue rounded-lg text-white">
+        <i class="fas fa-th"></i>
+      </div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Workday_logo.svg" alt="Workday" class="h-6 cursor-pointer" onclick="goHome()">
+    </div>
+
+    <div class="relative flex-1 max-w-xl mx-12">
+      <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+      <input type="text" id="searchInput" placeholder="Search for Tasks, People, or Reports" 
+             class="w-full bg-gray-100 border-none rounded-md py-2 pl-10 pr-4 focus:ring-2 focus:ring-wdBlue outline-none transition-all">
+    </div>
+
+    <div class="flex items-center gap-6 text-gray-600">
+      <i class="far fa-bell text-xl"></i>
+      <div class="flex items-center gap-2 border-l pl-6">
+        <span class="text-sm font-bold text-gray-700">Jay Goswami</span>
+        <div class="w-9 h-9 bg-wdBlue rounded-full flex items-center justify-center text-white font-bold">JG</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden">
+    
+    <aside class="w-20 bg-wdBlue text-white flex flex-col items-center py-6 gap-6">
+      <div onclick="goHome()" class="sidebar-item" title="Home"><i class="fas fa-home text-xl"></i></div>
+      <div onclick="showSection('hcm')" class="sidebar-item" title="HCM Configuration"><i class="fas fa-sitemap text-xl"></i></div>
+      <div onclick="showSection('learning')" class="sidebar-item" title="Learning"><i class="fas fa-graduation-cap text-xl"></i></div>
+      <div onclick="showSection('security')" class="sidebar-item" title="Security"><i class="fas fa-shield-alt text-xl"></i></div>
+      <div onclick="showSection('rfp')" class="sidebar-item" title="RFP"><i class="fas fa-file-invoice text-xl"></i></div>
+    </aside>
+
+    <main id="main-content" class="flex-1 overflow-y-auto p-8">
+      
+      <div class="mb-10">
+        <h1 class="text-3xl font-semibold text-gray-800">Good Morning, Jay</h1>
+        <p class="text-gray-500">Global Workday Lead | Learning & Security Specialist</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div onclick="showSection('hcm')" class="wd-card bg-white p-6 rounded-xl cursor-pointer flex flex-col items-center shadow-sm">
+          <div class="w-14 h-14 bg-blue-50 text-wdBlue rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-id-badge"></i></div>
+          <span class="font-bold">HCM Core</span>
+        </div>
+        <div onclick="showSection('learning')" class="wd-card bg-white p-6 rounded-xl cursor-pointer flex flex-col items-center shadow-sm">
+          <div class="w-14 h-14 bg-orange-50 text-wdOrange rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-university"></i></div>
+          <span class="font-bold">Learning</span>
+        </div>
+        <div onclick="showSection('security')" class="wd-card bg-white p-6 rounded-xl cursor-pointer flex flex-col items-center shadow-sm">
+          <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-lock"></i></div>
+          <span class="font-bold">Security</span>
+        </div>
+        <div onclick="showSection('rfp')" class="wd-card bg-white p-6 rounded-xl cursor-pointer flex flex-col items-center shadow-sm">
+          <div class="w-14 h-14 bg-green-50 text-wdGreen rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-chart-line"></i></div>
+          <span class="font-bold">RFP/Talent</span>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-2 h-8 bg-wdOrange rounded-full"></span>
+          My Workday Projects Milestone Tracker
+        </h2>
+        <div class="bg-white rounded-xl border shadow-sm overflow-hidden">
+          <table class="w-full text-left">
+            <thead class="bg-gray-50 border-b text-xs font-bold text-gray-500 uppercase tracking-wider">
+              <tr>
+                <th class="px-8 py-4">Implementation / Lifecycle</th>
+                <th class="px-8 py-4">Key Delivery Item</th>
+                <th class="px-8 py-4">Impact Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr class="hover:bg-blue-50 transition cursor-pointer" onclick="showSection('learning')">
+                <td class="px-8 py-5 font-semibold text-wdBlue">LMS Migration (Hitachi)</td>
+                <td class="px-8 py-5 text-sm text-gray-600">CSOD to Workday Learning - 100% Data Integrity</td>
+                <td class="px-8 py-5"><span class="status-pill bg-green-100 text-green-700">Go-Live</span></td>
+              </tr>
+              <tr class="hover:bg-blue-50 transition cursor-pointer" onclick="showSection('hcm')">
+                <td class="px-8 py-5 font-semibold text-wdBlue">Core Setup (Hitachi)</td>
+                <td class="px-8 py-5 text-sm text-gray-600">Architected 30+ Global Business Processes</td>
+                <td class="px-8 py-5"><span class="status-pill bg-blue-100 text-blue-700">Complete</span></td>
+              </tr>
+              <tr class="hover:bg-blue-50 transition cursor-pointer" onclick="showSection('rfp')">
+                <td class="px-8 py-5 font-semibold text-wdBlue">RFP Evaluation (Moody's)</td>
+                <td class="px-8 py-5 text-sm text-gray-600">Workday vs. Competitors (Learning/Talent)</td>
+                <td class="px-8 py-5"><span class="status-pill bg-yellow-100 text-yellow-700">Strategized</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+          <span class="w-2 h-8 bg-wdBlue rounded-full"></span>
+          Workday Module Expertise Scorecard
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-gray-800">Workday HCM</h3>
+                <span class="text-xs font-bold text-wdBlue">Advanced</span>
+              </div>
+              <p class="text-xs text-gray-500 italic mb-4">Sup Orgs, Matrix Orgs, BPF Configuration</p>
+              <div class="skill-bar"><div class="skill-progress w-[90%]"></div></div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-gray-800">Workday Learning</h3>
+                <span class="text-xs font-bold text-wdOrange">SME</span>
+              </div>
+              <p class="text-xs text-gray-500 italic mb-4">LMS Migration, Campaigns, SCORM/AICC</p>
+              <div class="skill-bar"><div class="skill-progress w-[100%] bg-wdOrange"></div></div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-gray-800">Security Configuration</h3>
+                <span class="text-xs font-bold text-purple-600">Specialist</span>
+              </div>
+              <p class="text-xs text-gray-500 italic mb-4">Domain/BP Security, Segmented Access</p>
+              <div class="skill-bar"><div class="skill-progress w-[85%] bg-purple-600"></div></div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-gray-800">Reporting & Xpresso</h3>
+                <span class="text-xs font-bold text-wdGreen">Intermediate</span>
+              </div>
+              <p class="text-xs text-gray-500 italic mb-4">Custom Report Writer, Analytics</p>
+              <div class="skill-bar"><div class="skill-progress w-[75%] bg-wdGreen"></div></div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-gray-800">Calculated Fields</h3>
+                <span class="text-xs font-bold text-gray-600">Core</span>
+              </div>
+              <p class="text-xs text-gray-500 italic mb-4">Logic-based reporting & BP conditions</p>
+              <div class="skill-bar"><div class="skill-progress w-[70%] bg-gray-600"></div></div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-gray-800">Workday Talent</h3>
+                <span class="text-xs font-bold text-pink-600">RFP Specialist</span>
+              </div>
+              <p class="text-xs text-gray-500 italic mb-4">Capability Evaluation & Roadmapping</p>
+              <div class="skill-bar"><div class="skill-progress w-[80%] bg-pink-600"></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const content = document.getElementById('main-content');
+    const originalDashboard = content.innerHTML;
+
+    function goHome() {
+      content.innerHTML = originalDashboard;
+      content.scrollTop = 0;
+    }
+
+    function showSection(type) {
+      let html = `<button onclick="goHome()" class="flex items-center gap-2 text-wdBlue mb-6 font-bold hover:underline">
+                    <i class="fas fa-arrow-left"></i> Return to Home
+                  </button>`;
+      
+      if(type === 'learning') {
+        html += `
+          <div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+               <div class="w-16 h-16 bg-orange-100 text-wdOrange rounded-xl flex items-center justify-center text-3xl"><i class="fas fa-graduation-cap"></i></div>
+               <div>
+                  <h1 class="text-3xl font-bold text-gray-900">Workday Learning Portfolio</h1>
+                  <p class="text-wdOrange font-bold uppercase tracking-widest text-xs">Subject Matter Expert</p>
+               </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm">
+                 <div class="text-3xl font-black text-gray-800">1.2M+</div>
+                 <div class="text-sm font-semibold text-gray-500">Historical Records Migrated</div>
+              </div>
+              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm">
+                 <div class="text-3xl font-black text-gray-800">350+</div>
+                 <div class="text-sm font-semibold text-gray-500">Monthly Support Tickets</div>
+              </div>
+              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm">
+                 <div class="text-3xl font-black text-gray-800">65%</div>
+                 <div class="text-sm font-semibold text-gray-500">Lift in Completion Rates</div>
+              </div>
+            </div>
+
+            <div class="space-y-8">
+              <section>
+                <h3 class="text-lg font-bold text-gray-800 mb-3 border-b pb-2">LMS Migration Strategy (CSOD to Workday)</h3>
+                <p class="text-gray-600 leading-relaxed">Led the Hitachi global migration. Coordinated data mapping for historical training records, session details, and enrollment history. Executed EIBs to automate inbound loads, saving 85% of manual effort.</p>
+              </section>
+              <section>
+                <h3 class="text-lg font-bold text-gray-800 mb-3 border-b pb-2">Operational Administration</h3>
+                <p class="text-gray-600 leading-relaxed">Full lifecycle management of digital and blended courses. Expert in SCORM/AICC content validation, Learning Campaigns, and automated notifications.</p>
+              </section>
+            </div>
+          </div>
+        `;
+      } else if(type === 'security') {
+        html += `
+          <div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Workday Security Configuration</h1>
+            <div class="bg-purple-50 p-6 rounded-xl border-l-8 border-purple-600 mb-8">
+               <p class="text-purple-900 font-medium italic">"Focused on decentralized administration while maintaining 100% compliance standards."</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+               <div class="p-4 border rounded-lg bg-white">
+                  <h4 class="font-bold text-purple-600 mb-2 uppercase">Domain Policies</h4>
+                  <p class="text-gray-600">Expertise in managing Learning Domain policies across administration, learner access, and reporting integrations.</p>
+               </div>
+               <div class="p-4 border rounded-lg bg-white">
+                  <h4 class="font-bold text-purple-600 mb-2 uppercase">Segmented Security</h4>
+                  <p class="text-gray-600">Assisted Learning Partners to administer content restricted to their assigned worker populations using Access to Segments.</p>
+               </div>
+            </div>
+          </div>
+        `;
+      } else if(type === 'hcm') {
+        html += `
+          <div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Workday HCM & Foundation</h1>
+            <p class="text-gray-600 mb-8">At Hitachi, I built the foundation that supports global scalability.</p>
+            <div class="space-y-4">
+               <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded border">
+                  <i class="fas fa-project-diagram text-wdBlue text-xl"></i>
+                  <div>
+                     <p class="font-bold">Org Structures</p>
+                     <p class="text-sm text-gray-500">Sup Orgs, Matrix Orgs, Cost Centers, and Company Hierarchies.</p>
+                  </div>
+               </div>
+               <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded border">
+                  <i class="fas fa-cogs text-wdBlue text-xl"></i>
+                  <div>
+                     <p class="font-bold">BP Framework</p>
+                     <p class="text-sm text-gray-500">Defining initiation security, approval routing, and notification logic.</p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        `;
+      } else if(type === 'rfp') {
+        html += `
+          <div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">RFP & Evaluation</h1>
+            <p class="text-gray-700 leading-relaxed mb-6">Experience leading Moody's Workday RFP evaluation process, bridging the gap between technical requirements and business objectives.</p>
+            <ul class="space-y-4">
+               <li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Developed vendor demo agendas and scoring matrices.</span></li>
+               <li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Analyzed vendor proposals for Learning, Security, and Talent.</span></li>
+               <li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Facilitated decision-making workshops with senior leadership.</span></li>
+            </ul>
+          </div>
+        `;
+      }
+
+      content.innerHTML = html;
+      content.scrollTop = 0;
+    }
+  </script>
+
+</body>
+</html>

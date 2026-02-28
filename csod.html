@@ -1,0 +1,365 @@
+CSOD Code
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>CSOD Admin Console | Jay Goswami</title>
+    <style>
+        :root {
+            --csod-orange: #FA4616;
+            --csod-navy: #2D3E50;
+            --csod-bg: #F3F5F7;
+            --csod-border: #DDD;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background-color: var(--csod-bg);
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* --- TOP NAVIGATION BAR --- */
+        .top-nav {
+            background-color: #FFF;
+            height: 50px;
+            border-bottom: 3px solid var(--csod-orange);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            color: var(--csod-navy);
+            font-size: 18px;
+            letter-spacing: -1px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .logo-text span { color: var(--csod-orange); }
+
+        /* --- LAYOUT --- */
+        .wrapper {
+            display: flex;
+            height: calc(100vh - 53px);
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 240px;
+            background-color: var(--csod-navy);
+            color: #BDC6CF;
+            font-size: 13px;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 20px 15px;
+            background-color: #1F2D3A;
+            color: var(--csod-orange);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 11px;
+            cursor: pointer;
+            border-bottom: 1px solid #3E4F61;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid #3E4F61;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: #3E4F61;
+            color: #FFF;
+            border-left: 4px solid var(--csod-orange);
+        }
+
+        /* --- MAIN CONTENT AREA --- */
+        .main-content {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        /* --- LANDING PAGE WIDGET STYLES --- */
+        .banner-container {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(rgba(45,62,80,0.7), rgba(45,62,80,0.7)), url('https://www.cornerstoneondemand.com/content/dam/cornerstone/en/images/hero-backgrounds/banner-standard.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            color: #fff;
+        }
+
+        .widget-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .csod-widget {
+            background: #fff;
+            border: 1px solid var(--csod-border);
+            border-radius: 2px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .widget-header {
+            padding: 10px 15px;
+            background-color: #F9FAFB;
+            border-bottom: 1px solid var(--csod-border);
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--csod-navy);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .data-row {
+            padding: 12px 15px;
+            border-bottom: 1px solid #EDEDED;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-pill {
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #EFEFEF;
+        }
+
+        .status-pill.success { background: #E6F4EA; color: #1E7E34; }
+
+        /* --- SECTION CONTENT STYLES (CODE 1) --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .widget {
+            background: #FFF;
+            border: 1px solid var(--csod-border);
+            border-top: 3px solid var(--csod-orange);
+            padding: 20px;
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #EEE;
+            padding-bottom: 10px;
+            color: var(--csod-navy);
+        }
+
+        .exp-list { list-style: none; padding: 0; margin: 0; }
+        .exp-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+        .exp-item::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--csod-orange);
+            font-weight: bold;
+        }
+
+        .full-width { grid-column: span 2; }
+        .hidden { display: none; }
+
+    </style>
+</head>
+<body>
+
+<div class="top-nav">
+    <div class="logo-text" onclick="window.location.href='index.html'" style="cursor: pointer;">
+        &larr; MOODY'S <span>CORNERSTONE</span>
+    </div>
+    <div style="font-size: 12px; color: #666;">Admin: <b>Jay Goswami</b> | Node: <b>Global_Top_Level</b></div>
+</div>
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="sidebar-header" onclick="showSection('landing')">Admin Navigation</div>
+            <div class="nav-item" onclick="showSection('overview')">Governance Overview</div>
+            <div class="nav-item" onclick="showSection('integrations')">Edge & API Management</div>
+            <div class="nav-item" onclick="showSection('operations')">Learning Operations (ILT/VILT)</div>
+            <div class="nav-item" onclick="showSection('reporting')">Reporting & Data Integrity</div>
+        </div>
+
+        <div class="main-content">
+            
+            <div id="landing" class="section">
+                <div class="banner-container">
+                    <div>
+                        <h2 style="margin:0; font-size: 24px;">Global Learning Management</h2>
+                        <p style="margin:5px 0 0; font-size: 14px; opacity: 0.9;">Enterprise Governance & Automation Node | Jay Goswami</p>
+                    </div>
+                </div>
+
+                <div class="widget-grid">
+                    <div class="left-col">
+                        <div class="csod-widget">
+                            <div class="widget-header">
+                                <span>Admin Action Items</span>
+                                <span style="font-size: 11px; color: var(--csod-orange);">4 Pending</span>
+                            </div>
+                            <div class="data-row">
+                                <div>
+                                    <div style="font-weight:bold; font-size:13px; color:#0056D2;">Edge Import Automation Audit</div>
+                                    <div style="font-size:11px; color:#666;">Review data feed scheduling and encryption key management.</div>
+                                </div>
+                                <span class="status-pill success">70% Optimized</span>
+                            </div>
+                            <div class="data-row">
+                                <div>
+                                    <div style="font-weight:bold; font-size:13px; color:#0056D2;">Postman API Credential Validation</div>
+                                    <div style="font-size:11px; color:#666;">Generate and test Client IDs/Secrets for global distribution.</div>
+                                </div>
+                                <span class="status-pill" style="color:#D93025; background:#FCE8E6;">High Priority</span>
+                            </div>
+                        </div>
+
+                        <div class="csod-widget">
+                            <div class="widget-header">Release Cycle Management</div>
+                            <div class="data-row">
+                                <div style="font-size: 13px;">
+                                    <strong>Quarterly CSOD Release Cycle</strong><br>
+                                    <span style="font-size: 11px; color: #666;">Configuring enhancements and live enablement for 45+ admins.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-col">
+                        <div class="csod-widget">
+                            <div class="widget-header">Integrated Platforms</div>
+                            <div style="padding: 15px;">
+                                <ul style="margin:0; padding:0; list-style:none; font-size: 12px;">
+                                    <li style="padding: 5px 0; border-bottom: 1px solid #f0f0f0;">✔ Skillsoft / Percipio</li>
+                                    <li style="padding: 5px 0; border-bottom: 1px solid #f0f0f0;">✔ Udemy for Business</li>
+                                    <li style="padding: 5px 0;">✔ O’Reilly Learning</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="csod-widget" style="background: var(--csod-navy); color: #fff;">
+                            <div class="widget-header" style="background: rgba(0,0,0,0.2); color: #fff; border: none;">Operational Snapshot</div>
+                            <div style="padding: 15px;">
+                                <div style="margin-bottom: 15px;">
+                                    <div style="font-size: 10px; opacity: 0.7;">ILT/VILT ENGAGEMENT</div>
+                                    <div style="font-size: 20px; font-weight: bold;">95%</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 10px; opacity: 0.7;">MONTHLY SESSIONS</div>
+                                    <div style="font-size: 20px; font-weight: bold;">110+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="overview" class="section hidden">
+                <div class="dashboard-grid">
+                    <div class="widget full-width">
+                        <div class="widget-title">Enterprise-Wide Governance & Strategy</div>
+                        <ul class="exp-list">
+                            <li class="exp-item"><b>Top Node Management:</b> Oversaw governance for Moody’s global hierarchy, ensuring compliance.</li>
+                            <li class="exp-item"><b>Global Security:</b> Designed and maintained security frameworks and platform-wide preference settings.</li>
+                            <li class="exp-item"><b>Release Cycles:</b> Managed quarterly CSOD releases, enabling 45+ admins.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="integrations" class="section hidden">
+                <div class="dashboard-grid">
+                    <div class="widget">
+                        <div class="widget-title">Edge Import & Automation</div>
+                        <ul class="exp-list">
+                            <li class="exp-item">Reduced manual intervention by <b>70%</b> through Edge Import automation.</li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-title">API & Postman Workflows</div>
+                        <ul class="exp-list">
+                            <li class="exp-item">Managed API credential workflows (Client ID/Secret).</li>
+                            <li class="exp-item">Validated all endpoints in <b>Postman</b>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="operations" class="section hidden">
+                <div class="dashboard-grid">
+                    <div class="widget full-width">
+                        <div class="widget-title">Learning Operations (ILT/VILT)</div>
+                        <ul class="exp-list">
+                            <li class="exp-item">Managed <b>110+ sessions per month</b> across HR and IT units.</li>
+                            <li class="exp-item">Achieved <b>95% learner engagement</b> via optimized roster coordination.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reporting" class="section hidden">
+                <div class="widget full-width">
+                    <div class="widget-title">Reporting 2.0 & Analytics</div>
+                    <ul class="exp-list">
+                        <li class="exp-item">Utilized <b>Reporting 2.0</b> to track program effectiveness for executive reviews.</li>
+                        <li class="exp-item">Administering data integrity across third-party platforms.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function showSection(id) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+            // Remove active class from nav
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            // Show target
+            document.getElementById(id).classList.remove('hidden');
+            
+            // Highlight nav if applicable
+            const activeNav = Array.from(document.querySelectorAll('.nav-item')).find(n => n.getAttribute('onclick').includes(id));
+            if (activeNav) activeNav.classList.add('active');
+        }
+    </script>
+</body>
+</html>

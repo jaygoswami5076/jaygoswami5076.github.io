@@ -1,0 +1,206 @@
+ServiceNow Goat Code
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceNow Experience Portfolio</title>
+    <style>
+        :root {
+            --sn-primary: #293e40; /* Polaris Dark Green/Grey */
+            --sn-brand: #81b5a1;   /* ServiceNow Mint */
+            --sn-sidebar: #f6f6f6;
+            --sn-text: #3d3d3d;
+            --sn-border: #d1d1d1;
+            --sn-hover: #e6e8ea;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            color: var(--sn-text);
+        }
+
+        /* --- TOP BANNER (Polaris) --- */
+        header {
+            background-color: var(--sn-primary);
+            color: white;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            justify-content: space-between;
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-area i { font-style: normal; font-weight: bold; font-size: 1.2rem; }
+
+        /* --- SIDEBAR (Filter Navigator) --- */
+        nav {
+            width: 260px;
+            background-color: var(--sn-sidebar);
+            border-right: 1px solid var(--sn-border);
+            margin-top: 50px;
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-box {
+            padding: 10px;
+            border-bottom: 1px solid var(--sn-border);
+        }
+
+        .filter-box input {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid var(--sn-border);
+            border-radius: 4px;
+        }
+
+        .nav-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .nav-item:hover { background-color: var(--sn-hover); }
+        .nav-active { border-left: 4px solid var(--sn-brand); background-color: white; font-weight: bold; }
+
+        /* --- MAIN CONTENT AREA --- */
+        main {
+            flex-grow: 1;
+            margin-top: 50px;
+            background-color: #ffffff;
+            overflow-y: auto;
+            padding: 25px;
+        }
+
+        .breadcrumb { font-size: 0.8rem; color: #666; margin-bottom: 20px; }
+
+        /* --- DASHBOARD CARDS --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid var(--sn-border);
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .card:hover { transform: translateY(-3px); border-color: var(--sn-brand); }
+        .card h3 { margin-top: 0; color: var(--sn-primary); border-bottom: 2px solid var(--sn-brand); display: inline-block; padding-bottom: 5px; }
+        .card ul { padding-left: 20px; font-size: 0.95rem; line-height: 1.6; }
+
+        /* Status Badge */
+        .badge {
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <span style="color: var(--sn-brand); font-size: 24px;">✳</span>
+        <i>ServiceNow <span style="font-weight: 300;">Experience Portal</span></i>
+    </div>
+    <div class="user-profile">
+        <span>Admin User ▼</span>
+    </div>
+</header>
+
+<nav>
+    <div class="filter-box">
+        <input type="text" placeholder="Filter navigator...">
+    </div>
+    <div class="nav-item">All Favorites</div>
+    <div class="nav-item">History</div>
+    <hr style="width: 100%; border: 0.5px solid #ddd;">
+    <div class="nav-item nav-active">My Experience Dashboard</div>
+    <div class="nav-item">HR Service Delivery</div>
+    <div class="nav-item">ITSM Operations</div>
+    <div class="nav-item">Project Portfolio (PPM)</div>
+</nav>
+
+<main>
+    <div class="breadcrumb">Self-Service > Dashboards > <b>ServiceNow Professional Summary</b></div>
+    
+    <h2 style="font-weight: 400; margin-bottom: 30px;">ServiceNow Capability Dashboard</h2>
+
+    <div class="dashboard-grid">
+        
+        <div class="card">
+            <span class="badge">Operational</span>
+            <h3>HR Case Management</h3>
+            <ul>
+                <li>Managed end-to-end <b>HR Tickets</b> (General Inquiry, Payroll, Benefits).</li>
+                <li>Automated HR Workflows to reduce manual task assignment by 30%.</li>
+                <li>Ensured SLA compliance for employee sensitive data handling.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Strategic</span>
+            <h3>Project & Portfolio (PPM)</h3>
+            <ul>
+                <li>Managed <b>Project Tickets</b> in SNOW, tracking milestones and resource allocation.</li>
+                <li>Utilized Investment Portfolios to align project spend with business goals.</li>
+                <li>Maintained Project Status Reports and Gantt views for stakeholders.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Governance</span>
+            <h3>Change Management</h3>
+            <ul>
+                <li>Performed <b>Change Management</b> functions: Risk Assessment, Conflict Detection, and CAB approvals.</li>
+                <li>Reduced unauthorized changes by implementing standardized Change Models.</li>
+                <li>Coordinated Emergency and Normal change windows via the Change Calendar.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Technical</span>
+            <h3>Release Management</h3>
+            <ul>
+                <li>Documented <b>Product Releases</b> in SNOW, linking Incidents and Problems to Release versions.</li>
+                <li>Managed build cycles and deployment checklists within the Release Workbench.</li>
+                <li>Ensured traceability from Development to Production.</li>
+            </ul>
+        </div>
+
+        <div class="card" style="grid-column: span 1;">
+            <span class="badge">Analytics</span>
+            <h3>Reporting & Dashboards</h3>
+            <ul>
+                <li>Maintained <b>HR Dashboards</b> with real-time KPIs (Time to Close, Satisfaction Score).</li>
+                <li>Built custom <b>SNOW Reports</b> (Bar charts, Pivot tables) for executive leadership.</li>
+                <li>Scheduled automated PDF report delivery to department heads.</li>
+            </ul>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>
