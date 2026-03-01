@@ -35,7 +35,6 @@ body {
     background: linear-gradient(135deg, #eef2ff 0%, #ffffff 50%, #f8fafc 100%);
 }
 
-/* Fixed the 'Y' cutting off by adding padding and adjusting leading */
 .hero-name {
     padding-bottom: 8px;
     line-height: 1.2;
@@ -50,6 +49,26 @@ body {
 .cta-button:hover {
     transform: translateY(-4px);
     box-shadow: 0 15px 35px rgba(79,70,229,0.25);
+}
+
+/* Updated Disclaimer Positioning: Relative to Content */
+.desktop-disclaimer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.5rem; /* Slight gap below the HR Systems tagline */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 999px;
+    animation: soft-pulse 2s infinite ease-in-out;
+}
+
+@keyframes soft-pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
 }
 </style>
 </head>
@@ -85,7 +104,14 @@ body {
         </button>
 
         <div class="mt-16 text-sm text-slate-400 tracking-widest uppercase font-medium">
-            LMS Migration • System Automation • Global Implementation
+            HR Systems • LMS Migration • System Automation • Global Implementation
+        </div>
+
+        <div class="desktop-disclaimer">
+            <i data-lucide="monitor" class="w-3.5 h-3.5 text-indigo-500"></i>
+            <span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">
+                Disclaimer: For best site experience, please view on desktop
+            </span>
         </div>
 
     </div>
