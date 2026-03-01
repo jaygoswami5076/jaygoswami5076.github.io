@@ -11,6 +11,7 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
         
         .section-divider {
+            position: relative;
             border-left: 4px solid #4f46e5;
             padding: 0.75rem 1rem;
             margin-bottom: 1rem;
@@ -24,6 +25,27 @@
         }
         
         .section-divider:hover { background-color: #f1f5f9; }
+
+        .expand-blinker {
+            position: absolute;
+            right: 3.5rem;
+            background: #4f46e5;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            animation: blinker-fade 1.5s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes blinker-fade {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
 
         .cert-card {
             background: white;
@@ -91,13 +113,20 @@
 
     <div class="max-w-7xl mx-auto">
         
-        <header class="mb-16">
-            <h1 class="text-5xl font-extrabold text-slate-900 tracking-tight">Technical <span class="text-indigo-600">Certifications</span></h1>
-            <p class="text-slate-500 mt-4 text-lg">Verified mastery across HRIS, Learning Ecosystems, and Emerging Tech.</p>
+        <header class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+                <h1 class="text-5xl font-extrabold text-slate-900 tracking-tight">Technical <span class="text-indigo-600">Certifications</span></h1>
+                <p class="text-slate-500 mt-4 text-lg">Verified mastery across HRIS, Learning Ecosystems, and Emerging Tech.</p>
+            </div>
+            <button onclick="toggleAllSections()" id="toggle-all-btn" class="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 text-slate-600 rounded-xl font-bold text-sm hover:bg-slate-50 transition shadow-sm">
+                <i data-lucide="unfold-vertical" class="w-4 h-4"></i>
+                <span id="toggle-all-text">Expand All</span>
+            </button>
         </header>
 
         <section>
             <div class="section-divider" onclick="toggleSection('csod-content', 'csod-icon')">
+                <span class="expand-blinker">Click section to expand</span>
                 <div>
                     <h2 class="text-2xl font-black text-slate-800 uppercase tracking-tight">Cornerstone OnDemand</h2>
                     <p class="text-slate-500 text-sm">Core CSX, LMS Expert, & Micro-certifications</p>
@@ -150,6 +179,7 @@
 
         <section>
             <div class="section-divider" style="border-color: #008fd3;" onclick="toggleSection('sap-content', 'sap-icon')">
+                <span class="expand-blinker">Click section to expand</span>
                 <div>
                     <h2 class="text-2xl font-black text-slate-800 uppercase tracking-tight">SAP SuccessFactors</h2>
                     <p class="text-slate-500 text-sm">Platform, Goal, & Performance Expert</p>
@@ -186,6 +216,7 @@
 
         <section>
             <div class="section-divider" style="border-color: #005cb9;" onclick="toggleSection('workday-content', 'workday-icon')">
+                <span class="expand-blinker">Click section to expand</span>
                 <div>
                     <h2 class="text-2xl font-black text-slate-800 uppercase tracking-tight">Workday</h2>
                     <p class="text-slate-500 text-sm">Reporting & Configuration</p>
@@ -206,6 +237,7 @@
 
         <section>
             <div class="section-divider" style="border-color: #10b981;" onclick="toggleSection('ai-content', 'ai-icon')">
+                <span class="expand-blinker">Click section to expand</span>
                 <div>
                     <h2 class="text-2xl font-black text-slate-800 uppercase tracking-tight">Cloud & AI</h2>
                     <p class="text-slate-500 text-sm">IBM watsonx & Azure AI</p>
@@ -249,15 +281,40 @@
                 icon.classList.add('rotated');
             }
         }
+
+        function toggleAllSections() {
+            const contents = document.querySelectorAll('.collapsible-content');
+            const icons = document.querySelectorAll('.rotate-icon');
+            const btnText = document.getElementById('toggle-all-text');
+            const isAnyCollapsed = Array.from(contents).some(c => !c.classList.contains('expanded'));
+
+            contents.forEach(content => {
+                if (isAnyCollapsed) content.classList.add('expanded');
+                else content.classList.remove('expanded');
+            });
+
+            icons.forEach(icon => {
+                if (isAnyCollapsed) icon.classList.add('rotated');
+                else icon.classList.remove('rotated');
+            });
+
+            btnText.innerText = isAnyCollapsed ? 'Collapse All' : 'Expand All';
+        }
+
+        // Remove blinkers after 15 seconds
+        setTimeout(() => {
+            const blinkers = document.querySelectorAll('.expand-blinker');
+            blinkers.forEach(el => el.remove());
+        }, 15000);
     </script>
 
     <div class="text-center mt-12">
         <hr class="mb-6">
         <button onclick="location.href='page3.html'" class="px-6 py-3 bg-gray-600 text-white rounded-lg mr-4 hover:bg-gray-700 transition">
-            ← Back
+            &larr; Back
         </button>
         <button onclick="location.href='page5.html'" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-            Next →
+            Next &rarr;
         </button>
     </div>
 </body>

@@ -26,13 +26,12 @@
     body { font-family: "Inter", sans-serif; background-color: #f3f5f7; color: #333; }
     .wd-card { transition: all 0.2s ease; border: 1px solid #e1e1e1; }
     .wd-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-color: #005CB9; }
-    .sidebar-item { transition: background 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; }
+    .sidebar-item { transition: background 0.2s; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 8px; width: 100%; }
     .sidebar-item:hover { background-color: rgba(255,255,255,0.2); }
     .status-pill { padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
     .skill-bar { height: 6px; border-radius: 3px; background: #e1e1e1; overflow: hidden; margin-top: 8px; }
     .skill-progress { height: 100%; background: #005CB9; border-radius: 3px; }
     
-    /* Bottom Nav for Workday Style */
     .wd-bottom-nav {
       background: white;
       border-top: 1px solid #e1e1e1;
@@ -58,6 +57,11 @@
       background: #005CB9;
       color: white;
     }
+
+    /* Journey Path Styles */
+    .journey-line { position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: #e1e1e1; z-index: 0; }
+    .journey-node { position: relative; z-index: 10; margin-bottom: 24px; display: flex; gap: 20px; }
+    .node-dot { width: 40px; height: 40px; background: white; border: 2px solid #005CB9; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold; color: #005CB9; font-size: 12px; }
   </style>
 </head>
 <body class="h-screen flex flex-col">
@@ -87,12 +91,13 @@
 
   <div class="flex flex-1 overflow-hidden pb-[60px]">
     
-    <aside class="w-20 bg-wdBlue text-white flex flex-col items-center py-6 gap-6">
-      <div onclick="goHome()" class="sidebar-item" title="Home"><i class="fas fa-home text-xl"></i></div>
-      <div onclick="showSection('hcm')" class="sidebar-item" title="HCM Configuration"><i class="fas fa-sitemap text-xl"></i></div>
-      <div onclick="showSection('learning')" class="sidebar-item" title="Learning"><i class="fas fa-graduation-cap text-xl"></i></div>
-      <div onclick="showSection('security')" class="sidebar-item" title="Security"><i class="fas fa-shield-alt text-xl"></i></div>
-      <div onclick="showSection('rfp')" class="sidebar-item" title="RFP"><i class="fas fa-file-contract text-xl"></i></div>
+    <aside class="w-64 bg-wdBlue text-white flex flex-col py-6 px-4 gap-4">
+      <div onclick="goHome()" class="sidebar-item" title="Home"><i class="fas fa-home"></i> <span>Home</span></div>
+      <div onclick="showSection('hcm')" class="sidebar-item" title="HCM"><i class="fas fa-sitemap"></i> <span>HCM Config</span></div>
+      <div onclick="showSection('learning')" class="sidebar-item" title="Learning"><i class="fas fa-graduation-cap"></i> <span>Learning</span></div>
+      <div onclick="showSection('security')" class="sidebar-item" title="Security"><i class="fas fa-shield-alt"></i> <span>Security</span></div>
+      <div onclick="showSection('rfp')" class="sidebar-item" title="RFP"><i class="fas fa-file-contract"></i> <span>RFP Strategy</span></div>
+      <div onclick="showSection('migration')" class="sidebar-item" title="Migration"><i class="fas fa-route"></i> <span>LMS Migration Journey</span></div>
     </aside>
 
     <main id="main-content" class="flex-1 overflow-y-auto p-8">
@@ -122,6 +127,11 @@
           <div class="w-14 h-14 bg-green-50 text-wdGreen rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-file-contract"></i></div>
           <span class="font-bold text-sm">RFP Strategy</span>
           <p class="text-[10px] text-gray-400 mt-2">Vendor Selection & Evaluation</p>
+        </div>
+        <div onclick="showSection('migration')" class="wd-card bg-white p-6 rounded-xl cursor-pointer flex flex-col items-center shadow-sm text-center">
+          <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-route"></i></div>
+          <span class="font-bold text-sm">LMS Migration Journey</span>
+          <p class="text-[10px] text-gray-400 mt-2">CSOD to WD Lifecycle</p>
         </div>
       </div>
 
@@ -175,7 +185,6 @@
           Workday Module Knowledge
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
           <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
             <div>
               <div class="flex justify-between items-start mb-2">
@@ -186,7 +195,6 @@
               <div class="skill-bar"><div class="skill-progress w-[100%] bg-wdOrange"></div></div>
             </div>
           </div>
-
           <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
             <div>
               <div class="flex justify-between items-start mb-2">
@@ -197,18 +205,16 @@
               <div class="skill-bar"><div class="skill-progress w-[90%] bg-wdBlue"></div></div>
             </div>
           </div>
-
           <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
             <div>
               <div class="flex justify-between items-start mb-2">
                 <h3 class="font-bold text-gray-800">Security Admin</h3>
-                <span class="text-xs font-bold text-purple-600">Specialist</span>
+                <span class="text-xs font-bold text-purple-600">Beginner</span>
               </div>
               <p class="text-[11px] text-gray-500 mb-4 italic">Segmented Access, Domain & BP Security</p>
-              <div class="skill-bar"><div class="skill-progress w-[88%] bg-purple-600"></div></div>
+              <div class="skill-bar"><div class="skill-progress w-[35%] bg-purple-600"></div></div>
             </div>
           </div>
-
           <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
             <div>
               <div class="flex justify-between items-start mb-2">
@@ -219,7 +225,6 @@
               <div class="skill-bar"><div class="skill-progress w-[95%] bg-wdGreen"></div></div>
             </div>
           </div>
-
           <div class="bg-white p-6 rounded-xl border shadow-sm flex flex-col justify-between hover:border-wdBlue transition">
             <div>
               <div class="flex justify-between items-start mb-2">
@@ -230,7 +235,6 @@
               <div class="skill-bar"><div class="skill-progress w-[82%] bg-gray-600"></div></div>
             </div>
           </div>
-
         </div>
       </div>
     </main>
@@ -256,9 +260,56 @@
                     <i class="fas fa-arrow-left"></i> Return to Home
                   </button>`;
       
-      if(type === 'learning') {
+      if(type === 'migration') {
         html += `
-          <div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
+          <div class="max-w-5xl mx-auto pb-10">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">LMS Migration Journey</h1>
+            <p class="text-gray-600 mb-10">Cornerstone (CSOD) to Workday Learning Implementation Lifecycle</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+               <div class="bg-white p-6 rounded-xl border-l-4 border-indigo-500 shadow-sm">
+                  <h4 class="font-bold text-indigo-700 mb-2 underline italic">Pitney Bowes Migration</h4>
+                  <p class="text-sm text-gray-600">Successfully led the high-stakes data migration for Pitney Bowes. Managed the complex transition of thousands of learner profiles and history from Cornerstone to Workday Learning, ensuring zero data loss and maintaining compliance audit trails.</p>
+               </div>
+               <div class="bg-white p-6 rounded-xl border-l-4 border-wdBlue shadow-sm">
+                  <h4 class="font-bold text-wdBlue mb-2 underline italic">Hitachi Global Implementation</h4>
+                  <p class="text-sm text-gray-600">Directed the overall end-to-end migration for Hitachi. Orchestrated the global rollout across multiple business units, standardizing learning processes and consolidating legacy LMS data into a single Workday source of truth.</p>
+               </div>
+            </div>
+
+            <div class="mb-12">
+               <h3 class="text-lg font-bold text-wdOrange mb-6 flex items-center gap-2"><i class="fas fa-database"></i> Phase 1: Data Migration & Extraction</h3>
+               <div class="relative ml-4">
+                  <div class="journey-line"></div>
+                  <div class="journey-node"><div class="node-dot">01</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">Strategy Planning</p><p class="text-xs text-gray-500">Starting with Strategy Planning for migrating CSOD to Workday.</p></div></div>
+                  <div class="journey-node"><div class="node-dot">02</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">Field Mapping Conversions</p><p class="text-xs text-gray-500">Creating Workday Learning to CSOD field mapping Conversions.</p></div></div>
+                  <div class="journey-node"><div class="node-dot">03</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">Extraction & Validation</p><p class="text-xs text-gray-500">Performing CSOD data extraction, data checks and validations, and loading data on shared FTPs.</p></div></div>
+               </div>
+            </div>
+
+            <div class="mb-12">
+               <h3 class="text-lg font-bold text-wdBlue mb-6 flex items-center gap-2"><i class="fas fa-cogs"></i> Phase 2: Workday Configuration & EIB</h3>
+               <div class="relative ml-4">
+                  <div class="journey-line"></div>
+                  <div class="journey-node"><div class="node-dot">04</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">Workday Configuration</p><p class="text-xs text-gray-500">Moving to Workday Configs after finalizing data.</p></div></div>
+                  <div class="journey-node"><div class="node-dot">05</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">EIB Development</p><p class="text-xs text-gray-500">Configuring EIBs for learning and entering Cornerstone data into Workday EIBs.</p></div></div>
+                  <div class="journey-node"><div class="node-dot">06</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">Data Load & Validation</p><p class="text-xs text-gray-500">Validating EIB Loads and performing actual data load.</p></div></div>
+                  <div class="journey-node"><div class="node-dot">07</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">Process & Tenant Setup</p><p class="text-xs text-gray-500">Configuring learning Business Processes, topics, and updating tenant setup for learning.</p></div></div>
+               </div>
+            </div>
+
+            <div class="mb-12">
+               <h3 class="text-lg font-bold text-wdGreen mb-6 flex items-center gap-2"><i class="fas fa-flag-checkered"></i> Phase 3: Launch & Transition</h3>
+               <div class="relative ml-4">
+                  <div class="journey-line"></div>
+                  <div class="journey-node"><div class="node-dot">08</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">Final Phase Prep</p><p class="text-xs text-gray-500">Final Phase for Admins and Learners followed by a system blackout period.</p></div></div>
+                  <div class="journey-node"><div class="node-dot">09</div><div class="bg-white p-4 border rounded shadow-sm w-full"><p class="font-bold">Go-Live & Hypercare</p><p class="text-xs text-gray-500">Launching Go-Live, performing Hypercare, and finalizing smooth transition.</p></div></div>
+               </div>
+            </div>
+          </div>
+        `;
+      } else if(type === 'learning') {
+        html += `<div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
             <div class="flex items-center gap-4 mb-8">
                <div class="w-16 h-16 bg-orange-100 text-wdOrange rounded-xl flex items-center justify-center text-3xl"><i class="fas fa-graduation-cap"></i></div>
                <div>
@@ -266,114 +317,22 @@
                   <p class="text-wdOrange font-bold uppercase tracking-widest text-xs">Functional Implementation Specialist</p>
                </div>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm">
-                 <div class="text-3xl font-black text-gray-800">100%</div>
-                 <div class="text-sm font-semibold text-gray-500">Data Integrity (CSOD Migration)</div>
-              </div>
-              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm">
-                 <div class="text-3xl font-black text-gray-800">65%</div>
-                 <div class="text-sm font-semibold text-gray-500">Lift in Completion via Campaigns</div>
-              </div>
-              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm">
-                 <div class="text-3xl font-black text-gray-800">200+</div>
-                 <div class="text-sm font-semibold text-gray-500">Global Admins Trained (SOPs)</div>
-              </div>
+              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm"><div class="text-3xl font-black text-gray-800">100%</div><div class="text-sm font-semibold text-gray-500">Data Integrity</div></div>
+              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm"><div class="text-3xl font-black text-gray-800">65%</div><div class="text-sm font-semibold text-gray-500">Lift in Completion</div></div>
+              <div class="p-6 bg-gray-50 rounded-xl border-t-4 border-wdOrange shadow-sm"><div class="text-3xl font-black text-gray-800">200+</div><div class="text-sm font-semibold text-gray-500">Admins Trained</div></div>
             </div>
-
             <div class="space-y-8">
-              <section>
-                <h3 class="text-lg font-bold text-gray-800 mb-3 border-b pb-2">LMS Migration Lead</h3>
-                <p class="text-gray-600 leading-relaxed">End-to-end migration for global Hitachi entities. Orchestrated transfer of course completions, digital content, curricula, and SCORM/AICC packages to Workday Drive. Automated 85% of load effort using EIB integrations.</p>
-              </section>
-              <section>
-                <h3 class="text-lg font-bold text-gray-800 mb-3 border-b pb-2">Implementation & Hypercare</h3>
-                <p class="text-gray-600 leading-relaxed">Defined security categories, catalog visibility, and enrollment rules. Configured announcement banners and worklets to increase post-migration adoption. Resolving 350+ monthly support tickets.</p>
-              </section>
+              <section><h3 class="text-lg font-bold text-gray-800 mb-3 border-b pb-2">LMS Migration Lead</h3><p class="text-gray-600 leading-relaxed">End-to-end migration for global Hitachi entities. Orchestrated transfer of course completions, digital content, curricula, and SCORM/AICC packages to Workday Drive. Automated 85% of load effort using EIB integrations.</p></section>
+              <section><h3 class="text-lg font-bold text-gray-800 mb-3 border-b pb-2">Implementation & Hypercare</h3><p class="text-gray-600 leading-relaxed">Defined security categories, catalog visibility, and enrollment rules. Configured announcement banners and worklets to increase post-migration adoption. Resolving 350+ monthly support tickets.</p></section>
             </div>
-          </div>
-        `;
+          </div>`;
       } else if(type === 'security') {
-        html += `
-          <div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
-            <h1 class="text-3xl font-bold text-gray-900 mb-8">Workday Security Configuration</h1>
-            <div class="bg-purple-50 p-6 rounded-xl border-l-8 border-purple-600 mb-8">
-               <p class="text-purple-900 font-medium italic">"Guided by Core Security to enable decentralized Learning Administration via role-based permissions."</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
-               <div class="p-4 border rounded-lg bg-white">
-                  <h4 class="font-bold text-purple-600 mb-2 uppercase text-xs">Role-Based Groups</h4>
-                  <p class="text-gray-600">Maintained Learning Admin, Content Creator, Learning Partner, and Instructor groups with population-based access (Org/Cost Center).</p>
-               </div>
-               <div class="p-4 border rounded-lg bg-white">
-                  <h4 class="font-bold text-purple-600 mb-2 uppercase text-xs">Segmented Access</h4>
-                  <p class="text-gray-600">Configured "Access to Segments" and eligibility rules (Job Profile/Location) for catalog visibility and content restricted to specific worker groups.</p>
-               </div>
-               <div class="p-4 border rounded-lg bg-white">
-                  <h4 class="font-bold text-purple-600 mb-2 uppercase text-xs">Domain & BP Policies</h4>
-                  <p class="text-gray-600">Managed policies for enrollments, campaigns, rosters, and external content compliance reporting.</p>
-               </div>
-               <div class="p-4 border rounded-lg bg-white">
-                  <h4 class="font-bold text-purple-600 mb-2 uppercase text-xs">Tenant Branding</h4>
-                  <p class="text-gray-600">Managed learning-level tenant security, branding features, and attribute maintenance for global deployment.</p>
-               </div>
-            </div>
-          </div>
-        `;
+        html += `<div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl"><h1 class="text-3xl font-bold text-gray-900 mb-8">Workday Security Configuration</h1><div class="bg-purple-50 p-6 rounded-xl border-l-8 border-purple-600 mb-8"><p class="text-purple-900 font-medium italic">"Guided by Core Security to enable decentralized Learning Administration via role-based permissions."</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm"><div class="p-4 border rounded-lg bg-white"><h4 class="font-bold text-purple-600 mb-2 uppercase text-xs">Role-Based Groups</h4><p class="text-gray-600">Maintained Learning Admin, Content Creator, Learning Partner, and Instructor groups with population-based access (Org/Cost Center).</p></div><div class="p-4 border rounded-lg bg-white"><h4 class="font-bold text-purple-600 mb-2 uppercase text-xs">Segmented Access</h4><p class="text-gray-600">Configured "Access to Segments" and eligibility rules (Job Profile/Location) for catalog visibility and content restricted to specific worker groups.</p></div><div class="p-4 border rounded-lg bg-white"><h4 class="font-bold text-purple-600 mb-2 uppercase text-xs">Domain & BP Policies</h4><p class="text-gray-600">Managed policies for enrollments, campaigns, rosters, and external content compliance reporting.</p></div><div class="p-4 border rounded-lg bg-white"><h4 class="font-bold text-purple-600 mb-2 uppercase text-xs">Tenant Branding</h4><p class="text-gray-600">Managed learning-level tenant security, branding features, and attribute maintenance for global deployment.</p></div></div></div>`;
       } else if(type === 'hcm') {
-        html += `
-          <div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
-            <h1 class="text-3xl font-bold text-gray-900 mb-8">HCM & Core Foundation Setup</h1>
-            <p class="text-gray-600 mb-8">Architecting the foundational structures at Hitachi to support scalable global operations.</p>
-            <div class="space-y-4">
-               <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded border">
-                  <i class="fas fa-sitemap text-wdBlue text-xl"></i>
-                  <div>
-                      <p class="font-bold">Org Architecture</p>
-                      <p class="text-sm text-gray-500">Configured Sup Orgs, Matrix Orgs (Cost Centers/Departments), and hierarchical Locations.</p>
-                  </div>
-               </div>
-               <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded border">
-                  <i class="fas fa-project-diagram text-wdBlue text-xl"></i>
-                  <div>
-                      <p class="font-bold">BP Framework (BPF)</p>
-                      <p class="text-sm text-gray-500">Defined initiation security, approval routing, conditions, and notification logic for core HCM processes.</p>
-                  </div>
-               </div>
-               <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded border">
-                  <i class="fas fa-desktop text-wdBlue text-xl"></i>
-                  <div>
-                      <p class="font-bold">Tenant Configuration</p>
-                      <p class="text-sm text-gray-500">Maintaining dashboards, worklets, and foundational tenant setup for optimal user experience.</p>
-                  </div>
-               </div>
-            </div>
-          </div>
-        `;
+        html += `<div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl"><h1 class="text-3xl font-bold text-gray-900 mb-8">HCM & Core Foundation Setup</h1><p class="text-gray-600 mb-8">Architecting the foundational structures at Hitachi to support scalable global operations.</p><div class="space-y-4"><div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded border"><i class="fas fa-sitemap text-wdBlue text-xl"></i><div><p class="font-bold">Org Architecture</p><p class="text-sm text-gray-500">Configured Sup Orgs, Matrix Orgs (Cost Centers/Departments), and hierarchical Locations.</p></div></div><div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded border"><i class="fas fa-project-diagram text-wdBlue text-xl"></i><div><p class="font-bold">BP Framework (BPF)</p><p class="text-sm text-gray-500">Defined initiation security, approval routing, conditions, and notification logic for core HCM processes.</p></div></div><div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded border"><i class="fas fa-desktop text-wdBlue text-xl"></i><div><p class="font-bold">Tenant Configuration</p><p class="text-sm text-gray-500">Maintaining dashboards, worklets, and foundational tenant setup for optimal user experience.</p></div></div></div></div>`;
       } else if(type === 'rfp') {
-        html += `
-          <div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl">
-            <h1 class="text-3xl font-bold text-gray-900 mb-4">RFP Evaluation & Talent Strategy</h1>
-            <p class="text-wdGreen font-bold uppercase tracking-widest text-xs mb-8">Moody's Strategy Lead</p>
-            <p class="text-gray-700 leading-relaxed mb-6">Managed the end-to-end RFP process for Workday Learning, Security, and Talent modules, bridging technical requirements with business goals.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-               <div class="p-4 bg-green-50 rounded-lg">
-                  <h4 class="font-bold text-wdGreen text-sm mb-1">Vendor Engagement</h4>
-                  <p class="text-xs text-gray-600">Developed demo agendas, scripts, and objective scoring matrices for vendors.</p>
-               </div>
-               <div class="p-4 bg-green-50 rounded-lg">
-                  <h4 class="font-bold text-wdGreen text-sm mb-1">Decision Facilitation</h4>
-                  <p class="text-xs text-gray-600">Moderated internal review meetings and stakeholder workshops to align leadership.</p>
-               </div>
-            </div>
-            <ul class="space-y-4">
-               <li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Translated complex needs into structured RFP documentation.</span></li>
-               <li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Conducted gap analysis between legacy systems and Workday Talent capabilities.</span></li>
-               <li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Clarified solution capabilities directly with Workday Executives.</span></li>
-            </ul>
-          </div>
-        `;
+        html += `<div class="bg-white p-10 rounded-2xl border shadow-lg max-w-4xl"><h1 class="text-3xl font-bold text-gray-900 mb-4">RFP Evaluation & Talent Strategy</h1><p class="text-wdGreen font-bold uppercase tracking-widest text-xs mb-8">Moody's Strategy Lead</p><p class="text-gray-700 leading-relaxed mb-6">Managed the end-to-end RFP process for Workday Learning, Security, and Talent modules, bridging technical requirements with business goals.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"><div class="p-4 bg-green-50 rounded-lg"><h4 class="font-bold text-wdGreen text-sm mb-1">Vendor Engagement</h4><p class="text-xs text-gray-600">Developed demo agendas, scripts, and objective scoring matrices for vendors.</p></div><div class="p-4 bg-green-50 rounded-lg"><h4 class="font-bold text-wdGreen text-sm mb-1">Decision Facilitation</h4><p class="text-xs text-gray-600">Moderated internal review meetings and stakeholder workshops to align leadership.</p></div></div><ul class="space-y-4"><li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Translated complex needs into structured RFP documentation.</span></li><li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Conducted gap analysis between legacy systems and Workday Talent capabilities.</span></li><li class="flex gap-3"><i class="fas fa-check-circle text-wdGreen mt-1"></i> <span>Clarified solution capabilities directly with Workday Executives.</span></li></ul></div>`;
       }
 
       content.innerHTML = html;

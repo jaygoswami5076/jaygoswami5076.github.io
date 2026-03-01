@@ -5,13 +5,10 @@
     <title>Platform Expertise</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -21,6 +18,7 @@
         }
 
         .tool-card {
+            position: relative;
             transition: all 0.4s ease;
             border: 1px solid #e2e8f0;
             background: white;
@@ -41,6 +39,28 @@
             justify-content: center;
             margin-bottom: 1.5rem;
         }
+
+        /* Blinker Styles */
+        .click-blinker {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: #4f46e5;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            animation: blinker-fade 1.5s linear infinite;
+        }
+
+        @keyframes blinker-fade {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 
@@ -49,7 +69,6 @@
 <section class="min-h-screen py-20 px-6">
     <div class="max-w-7xl mx-auto">
 
-        <!-- Header -->
         <header class="mb-20">
             <h2 class="text-indigo-600 font-bold uppercase tracking-widest text-xs mb-3">
                 Technical Stack
@@ -58,11 +77,10 @@
                 System & Platform Expertise
             </h1>
             <p class="text-slate-500 mt-4 max-w-2xl text-lg leading-relaxed">
-                Select a platform to explore detailed certifications and technical mastery.
+                <b class="text-slate-900">Select a platform to explore detailed certifications and technical mastery.</b>
             </p>
         </header>
 
-        <!-- ================= LMS ================= -->
         <div class="mb-16">
             <h3 class="text-2xl font-bold text-slate-800 mb-8">
                 Learning Management Systems (LMS)
@@ -72,6 +90,7 @@
 
                 <div onclick="window.location.href='csod.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-blue-50">
                         <i data-lucide="layers" class="text-blue-600"></i>
                     </div>
@@ -85,6 +104,7 @@
 
                 <div onclick="window.location.href='workday.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-orange-50">
                         <i data-lucide="box" class="text-orange-600"></i>
                     </div>
@@ -98,6 +118,7 @@
 
                 <div onclick="window.location.href='saba.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-slate-100">
                         <i data-lucide="cloud" class="text-slate-600"></i>
                     </div>
@@ -111,6 +132,7 @@
 
                 <div onclick="window.location.href='lxp.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-slate-100">
                         <i data-lucide="cloud" class="text-slate-600"></i>
                     </div>
@@ -125,7 +147,6 @@
             </div>
         </div>
 
-        <!-- ================= HCM ================= -->
         <div class="mb-16">
             <h3 class="text-2xl font-bold text-slate-800 mb-8">
                 Human Capital Management (HCM)
@@ -135,6 +156,7 @@
 
                 <div onclick="window.location.href='workday.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-orange-50">
                         <i data-lucide="briefcase" class="text-orange-600"></i>
                     </div>
@@ -148,6 +170,7 @@
 
                 <div onclick="window.location.href='sap.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-sky-50">
                         <i data-lucide="shield-check" class="text-sky-600"></i>
                     </div>
@@ -161,6 +184,7 @@
 
                 <div onclick="window.location.href='workhuman.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-red-50">
                         <i data-lucide="heart" class="text-red-600"></i>
                     </div>
@@ -175,7 +199,6 @@
             </div>
         </div>
 
-        <!-- ================= CRM ================= -->
         <div class="mb-16">
             <h3 class="text-2xl font-bold text-slate-800 mb-8">
                 Customer Relationship Management (CRM)
@@ -185,6 +208,7 @@
 
                 <div onclick="window.location.href='snow.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-emerald-50">
                         <i data-lucide="workflow" class="text-emerald-600"></i>
                     </div>
@@ -199,7 +223,6 @@
             </div>
         </div>
 
-        <!-- ================= AI ================= -->
         <div class="mb-16">
             <h3 class="text-2xl font-bold text-slate-800 mb-8">
                 AI & Automation Tools
@@ -209,6 +232,7 @@
 
                 <div onclick="window.location.href='ai.html'"
                      class="tool-card p-10 rounded-3xl cursor-pointer">
+                    <span class="click-blinker">Click Card</span>
                     <div class="tool-logo bg-purple-50">
                         <i data-lucide="sparkles" class="text-purple-600"></i>
                     </div>
@@ -226,27 +250,31 @@
     </div>
 </section>
 
-<script>
-    lucide.createIcons();
-</script>
-<!-- Navigation Buttons -->
 <div class="text-center mt-16 pb-16">
     <hr class="mb-6">
 
-    <!-- Back Button -->
     <button 
         onclick="window.location.href='page4.html'" 
         class="px-6 py-3 bg-gray-600 text-white rounded-lg mr-4 hover:bg-gray-700 transition">
         ← Back
     </button>
 
-    <!-- Next Button -->
     <button 
         onclick="window.location.href='page6.html'" 
         class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
         Next → 
     </button>
 </div>
+
+<script>
+    lucide.createIcons();
+
+    // Remove blinkers after 15 seconds
+    setTimeout(() => {
+        const blinkers = document.querySelectorAll('.click-blinker');
+        blinkers.forEach(el => el.remove());
+    }, 15000);
+</script>
 
 </body>
 </html>
